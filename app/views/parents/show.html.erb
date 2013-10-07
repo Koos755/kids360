@@ -2,7 +2,7 @@
 
 <div>
   <h1>Welcome back <%= @parent.first_name %></h1>
-  <%= link_to 'Edit Your details', edit_parent_path(@parent), class: "btn btn-warning pull-right" %>
+  <%= link_to '<i class="icon-edit-sign"></i> Edit your details'.html_safe, edit_parent_path(@parent), class: "btn btn-warning pull-right" %>
 </div>
 <p>
   <strong>Name:</strong>
@@ -28,14 +28,17 @@
     <div class="panel panel-primary col-md-4">
       <div class="panel-heading">
         <%= link_to child.first_name, child_url(child.id), class: "btn" %>
-        <%= link_to "Edit", edit_child_url(child.id), class: "btn btn-warning pull-right"  %>
+        <%= link_to '<i class="icon-edit-sign"></i>'.html_safe, edit_child_url(child.id), class: "btn pull-right"  %>
       </div>
       <div class="panel-body">
         <% child.organizations.each do |organization|%>
-          <%= link_to organization.name, organization_url(organization.id) %><br>
+          <%= link_to organization.name, organization_url(organization.id) %>
+          <%= link_to '<i class="icon-trash"></i>'.html_safe, '#', class: "pull-right"%>
+          <br>
         <% end %>
+        <%= link_to '<i class="icon-plus-sign-alt"></i>'.html_safe, new_authorization_url, remote: true, class: "pull-right" %>
       </div>
     </div>
   <% end %>
 </div>
-<%= link_to 'add a child', new_child_url(parent: @parent.id), class: "btn btn-danger", remote: true %>
+<%= link_to '<i class="icon-plus-sign-alt"></i> child'.html_safe, new_child_url(parent: @parent.id), class: "btn btn-danger", remote: true %>
