@@ -22,9 +22,9 @@
         <td><%= parent.phone_number %></td>
         <td><%= parent.email %></td>
         <td><%= "#{parent.address}, #{parent.city}, #{parent.state}, #{parent.zip}" %></td>
-        <td><%= link_to 'Show', parent %></td>
-        <td><%= link_to 'Edit', edit_parent_path(parent) %></td>
-        <td><%= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'show'.html_safe, parent_url(parent) %></td>
+        <td><%= link_to '<i class="icon-edit-sign"></i>'.html_safe, edit_parent_url(parent) %></td>
+        <td><%= link_to '<i class="icon-trash"></i>'.html_safe, parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

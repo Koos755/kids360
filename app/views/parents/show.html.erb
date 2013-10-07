@@ -24,21 +24,23 @@
   <%= "#{@parent.address}, #{@parent.city}, #{@parent.state}, #{@parent.zip}" %>
 </p>
 <div class="row">
-  <% @children.each do |child| %>
-    <div class="panel panel-primary col-md-4">
-      <div class="panel-heading">
-        <%= link_to child.first_name, child_url(child.id), class: "btn" %>
-        <%= link_to '<i class="icon-edit-sign"></i>'.html_safe, edit_child_url(child.id), class: "btn pull-right"  %>
+  <% if @children.present? %>
+    <% @children.each do |child| %>
+      <div class="panel panel-primary col-md-4">
+        <div class="panel-heading">
+          <%= link_to child.first_name, child_url(child.id), class: "btn" %>
+          <%= link_to '<i class="icon-edit-sign"></i>'.html_safe, edit_child_url(child.id), class: "btn pull-right"  %>
+        </div>
+        <div class="panel-body">
+          <% child.organizations.each do |organization|%>
+            <%= link_to organization.name, organization_url(organization.id) %>
+            <%= link_to '<i class="icon-trash"></i>'.html_safe, parent_url(child.parent.id), method: :delete, data: { confirm: 'Are you sure you want to remove this authorization?'}, class: "pull-right"%>
+            <br>
+          <% end %>
+          <%= link_to '<i class="icon-plus-sign-alt"></i>'.html_safe, new_authorization_url, remote: true, class: "pull-right" %>
+        </div>
       </div>
-      <div class="panel-body">
-        <% child.organizations.each do |organization|%>
-          <%= link_to organization.name, organization_url(organization.id) %>
-          <%= link_to '<i class="icon-trash"></i>'.html_safe, '#', class: "pull-right"%>
-          <br>
-        <% end %>
-        <%= link_to '<i class="icon-plus-sign-alt"></i>'.html_safe, new_authorization_url, remote: true, class: "pull-right" %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 <%= link_to '<i class="icon-plus-sign-alt"></i> child'.html_safe, new_child_url(parent: @parent.id), class: "btn btn-danger", remote: true %>
