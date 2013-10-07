@@ -10,8 +10,17 @@ parents = [{first_name: "Demarcus", last_name: "Bowser", phone_number: "90128942
            {first_name: "Audrey", last_name: "Jones", phone_number: "9015684006", email: "audreypjones@gmail.com", email_confirmed: true, address: "1005 Idlewild", city: "Memphis", state: "TN", zip: "38107", password: "pw4apj", password_confirmation: "pw4apj" },
            {first_name: "Jim", last_name: "Smith", phone_number: "9012680070", email: "mrsmithsemail@gmail.com", email_confirmed: true, address: "2001 New St", city: "Memphis", state: "TN", zip: "38111", password: "MrSmithsemail", password_confirmation: "MrSmithsemail" }]
 
+children = [{parent_id: 1, first_name: "Christopher", last_name: "Bowser", email: "christopher@bowser.com", phone_number: "3128451798"},
+            {parent_id: 1, first_name:"Susan", last_name: "Bowser", email: "susan@bowser.com", phone_number:"3126789458"},
+            {parent_id: 1, first_name:"Siri", last_name: "Bowser", email: "siri@bowser.com", phone_number: "3126798908"}]
+
 parents.each do |parent|
   Parent.create(parent)
 end
 
+children.each do |child|
+ Child.create(child)
+end
+
 puts "There are now #{Parent.count} parents in the database"
+puts "There are now #{Child.count} children in the database"

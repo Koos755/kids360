@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @parent.first_name %>
-</p>
+<h1>Welcome back <%= @parent.first_name %></h1>
 
 <p>
-  <strong>Last name:</strong>
-  <%= @parent.last_name %>
+  <strong>Name:</strong>
+  <%= "#{@parent.first_name} #{@parent.last_name}" %>
 </p>
 
 <p>
@@ -22,23 +19,10 @@
 
 <p>
   <strong>Address:</strong>
-  <%= @parent.address %>
+  <%= "#{@parent.address}, #{@parent.city}, #{@parent.state}, #{@parent.zip}" %>
 </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @parent.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @parent.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @parent.zip %>
-</p>
+<%= @children %>
 
 
 <%= link_to 'add a child', new_child_url(parent: @parent.id), class: "btn btn-danger", remote: true %>

@@ -10,6 +10,10 @@ class ParentsController < ApplicationController
   # GET /parents/1
   # GET /parents/1.json
   def show
+    if Child.where(parent_id: @parent.id).present?
+      @children = Child.where(parent_id: @parent.id)
+    end
+
   end
 
   # GET /parents/new
