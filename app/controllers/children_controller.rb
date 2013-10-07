@@ -15,6 +15,7 @@ class ChildrenController < ApplicationController
   # GET /children/new
   def new
     @child = Child.new
+    @parent = Parent.find(params[:parent])
   end
 
   # GET /children/1/edit

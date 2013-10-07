@@ -21,11 +21,6 @@
 </p>
 
 <p>
-  <strong>Email confirmed:</strong>
-  <%= @parent.email_confirmed %>
-</p>
-
-<p>
   <strong>Address:</strong>
   <%= @parent.address %>
 </p>
@@ -45,10 +40,6 @@
   <%= @parent.zip %>
 </p>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @parent.password_digest %>
-</p>
 
-<%= link_to 'Edit', edit_parent_path(@parent) %> |
-<%= link_to 'Back', parents_path %>
+<%= link_to 'add a child', new_child_url(parent: @parent.id), class: "btn btn-danger" %>
+<%= link_to 'Edit', edit_parent_path(@parent), class: "btn btn-warning" %>
