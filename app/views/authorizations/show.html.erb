@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @authorization.organization_id %>
+</p>
+
+<p>
+  <strong>Child:</strong>
+  <%= @authorization.child_id %>
+</p>
+
+<%= link_to 'Edit', edit_authorization_path(@authorization) %> |
+<%= link_to 'Back', authorizations_path %>
