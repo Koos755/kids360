@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Welcome back <%= @parent.first_name %></h1>
-
+<div>
+  <h1>Welcome back <%= @parent.first_name %></h1>
+  <%= link_to 'Edit Your details', edit_parent_path(@parent), class: "btn btn-warning pull-right" %>
+</div>
 <p>
   <strong>Name:</strong>
   <%= "#{@parent.first_name} #{@parent.last_name}" %>
@@ -21,15 +23,19 @@
   <strong>Address:</strong>
   <%= "#{@parent.address}, #{@parent.city}, #{@parent.state}, #{@parent.zip}" %>
 </p>
-<% @children.each do |child| %>
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <%= child.first_name %>
+<div class="row">
+  <% @children.each do |child| %>
+    <div class="panel panel-primary col-md-4">
+      <div class="panel-heading">
+        <%= link_to child.first_name, child_url(child.id), class: "btn" %>
+        <%= link_to "Edit", edit_child_url(child.id), class: "btn btn-warning pull-right"  %>
+      </div>
+      <div class="panel-body">
+        <% child.organizations.each do |organization|%>
+          <%= link_to organization.name, organization_url(organization.id) %><br>
+        <% end %>
+      </div>
     </div>
-    <div class="panel-body">
-      <%= child.last_name %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 <%= link_to 'add a child', new_child_url(parent: @parent.id), class: "btn btn-danger", remote: true %>
-<%= link_to 'Edit', edit_parent_path(@parent), class: "btn btn-warning" %>
