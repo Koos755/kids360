@@ -16,6 +16,11 @@ class ChildrenController < ApplicationController
   def new
     @child = Child.new
     @parent = Parent.find(params[:parent])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /children/1/edit

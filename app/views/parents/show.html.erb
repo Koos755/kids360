@@ -41,5 +41,5 @@
 </p>
 
 
-<%= link_to 'add a child', new_child_url(parent: @parent.id), class: "btn btn-danger" %>
+<%= link_to 'add a child', new_child_url(parent: @parent.id), class: "btn btn-danger", remote: true %>
 <%= link_to 'Edit', edit_parent_path(@parent), class: "btn btn-warning" %>
