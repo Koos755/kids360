@@ -1,18 +1,13 @@
 <h1>Listing parents</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Phone number</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone Number</th>
       <th>Email</th>
-      <th>Email confirmed</th>
       <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Password digest</th>
       <th></th>
       <th></th>
       <th></th>
@@ -26,12 +21,7 @@
         <td><%= parent.last_name %></td>
         <td><%= parent.phone_number %></td>
         <td><%= parent.email %></td>
-        <td><%= parent.email_confirmed %></td>
-        <td><%= parent.address %></td>
-        <td><%= parent.city %></td>
-        <td><%= parent.state %></td>
-        <td><%= parent.zip %></td>
-        <td><%= parent.password_digest %></td>
+        <td><%= "#{parent.address}, #{parent.city}, #{parent.state}, #{parent.zip}" %></td>
         <td><%= link_to 'Show', parent %></td>
         <td><%= link_to 'Edit', edit_parent_path(parent) %></td>
         <td><%= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -42,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Parent', new_parent_path %>
+<%= link_to 'New Parent', new_parent_path, class: "btn btn-primary" %>
