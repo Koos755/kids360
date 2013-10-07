@@ -14,6 +14,15 @@ children = [{parent_id: 1, first_name: "Christopher", last_name: "Bowser", email
             {parent_id: 1, first_name:"Susan", last_name: "Bowser", email: "susan@bowser.com", phone_number:"3126789458"},
             {parent_id: 1, first_name:"Siri", last_name: "Bowser", email: "siri@bowser.com", phone_number: "3126798908"}]
 
+organizations = [{name: "Facebook", email: "info@facebook.com"}, {name: "Twitter", email: "info@twitter.com"}, {name: "CTA", email: "info@cta.com"}]
+
+authorizations = [{organization_id: 1, child_id: 1},
+                  {organization_id: 2, child_id: 1},
+                  {organization_id: 3, child_id: 1},
+                  {organization_id: 1, child_id: 2},
+                  {organization_id: 2, child_id: 2},
+                  {organization_id: 3, child_id: 3}]
+
 parents.each do |parent|
   Parent.create(parent)
 end
@@ -22,5 +31,19 @@ children.each do |child|
  Child.create(child)
 end
 
+organizations.each do |organization|
+  Organization.create(organization)
+end
+
+authorizations.each do |authorization|
+  Authorization.create(authorization)
+end
+
 puts "There are now #{Parent.count} parents in the database"
 puts "There are now #{Child.count} children in the database"
+puts "There are now #{Organization.count} organizations in the database"
+puts "There are now #{Authorization.count} authorization in the database"
+
+
+
+

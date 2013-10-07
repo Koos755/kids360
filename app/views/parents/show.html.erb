@@ -21,9 +21,15 @@
   <strong>Address:</strong>
   <%= "#{@parent.address}, #{@parent.city}, #{@parent.state}, #{@parent.zip}" %>
 </p>
-
-<%= @children %>
-
-
+<% @children.each do |child| %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <%= child.first_name %>
+    </div>
+    <div class="panel-body">
+      <%= child.last_name %>
+    </div>
+  </div>
+<% end %>
 <%= link_to 'add a child', new_child_url(parent: @parent.id), class: "btn btn-danger", remote: true %>
 <%= link_to 'Edit', edit_parent_path(@parent), class: "btn btn-warning" %>
