@@ -15,7 +15,7 @@ class ChildrenController < ApplicationController
   # GET /children/new
   def new
     @child = Child.new
-    @parent = Parent.find(params[:parent])
+    @child.parent_id = Parent.find(params[:parent]).id
 
     respond_to do |format|
       format.html
@@ -34,9 +34,11 @@ class ChildrenController < ApplicationController
 
     respond_to do |format|
       if @child.save
+        format.js { render 'create', notice: "Child added successfully!"}
         format.html { redirect_to @child, notice: 'Child was successfully created.' }
         format.json { render action: 'show', status: :created, location: @child }
       else
+        format.js { render 'new'}
         format.html { render action: 'new' }
         format.json { render json: @child.errors, status: :unprocessable_entity }
       end
