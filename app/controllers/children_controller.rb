@@ -39,7 +39,7 @@ class ChildrenController < ApplicationController
         format.html { redirect_to @child }
         format.json { render action: 'show', status: :created, location: @child }
       else
-        format.js { render 'new'}
+        format.js { render 'failed_create'}
         format.html { render action: 'new' }
         format.json { render json: @child.errors, status: :unprocessable_entity }
       end

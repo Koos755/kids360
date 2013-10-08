@@ -1,36 +1,10 @@
 <%= form_for(@child, class: "form-inline", remote: true) do |f| %>
-  <% if @child.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@child.errors.count, "error") %> prohibited this child from being saved:</h2>
-
-      <ul>
-      <% @child.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="form-group">
     <%= f.hidden_field :parent_id, value: @child.parent_id %>
-  </div>
-  <div class="form-group">
-    <!-- <#%= f.label :first_name %><br> -->
     <%= f.text_field :first_name, placeholder: "First Name" %>
     <%= f.text_field :last_name, placeholder: "Last Name" %>
     <%= f.text_field :email, placeholder: "Email" %>
     <%= f.text_field :phone_number, placeholder: "Phone Number" %>
     <%= f.submit "Add Child", class: "btn-primary" %>
-  <!-- </div> -->
-  <!-- <div class="form-group"> -->
-    <!-- <#%= f.label :last_name %><br> -->
-  <!-- </div> -->
-  <!-- <div class="form-group"> -->
-    <!-- <#%= f.label :email %><br> -->
-  <!-- </div> -->
-  <!-- <div class="form-group"> -->
-    <!-- <#%= f.label :phone_number %><br> -->
   </div>
-  <!-- <div class="actions"> -->
-  <!-- </div> -->
 <% end %>

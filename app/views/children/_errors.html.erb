@@ -1,0 +1,10 @@
+<div class="alert alert-danger mb10 ptb5">
+  <a class="close" data-dismiss="alert">&times;</a>
+  <h5><%= pluralize(child.errors.count, "error") %> prohibited this child from being saved:</h5>
+  <ul>
+    <% child.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+
