@@ -1,5 +1,5 @@
-<%= form_for(@child, class: "form-inline mt10", remote: true) do |f| %>
-  <div class="form-group">
+<%= form_for(@child, class: "form-inline mt15", remote: true) do |f| %>
+  <div class="form-group mt15">
     <%= f.hidden_field :parent_id, value: @child.parent_id %>
     <%= f.text_field :first_name, placeholder: "First Name", class: "width250 mr8" %>
     <%= f.text_field :last_name, placeholder: "Last Name", class: "width250 mr8" %>
