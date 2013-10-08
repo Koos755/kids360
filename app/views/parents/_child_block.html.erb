@@ -9,14 +9,14 @@
       <br>
     <% end %>
     <% if the_child.organizations.count == 0 %>
-      <%= link_to '<click to add>', '#' %><br>
-      <%= link_to '<click to add>', '#' %><br>
-      <%= link_to '<click to add>', '#' %>
+      <%= click_to_add(the_child) %><br>
+      <%= click_to_add(the_child) %><br>
+      <%= click_to_add(the_child) %>
     <% elsif the_child.organizations.count == 1 %>
-      <%= link_to '<click to add>', '#' %><br>
-      <%= link_to '<click to add>', '#' %>
+      <%= click_to_add(the_child) %><br>
+      <%= click_to_add(the_child) %>
     <% elsif the_child.organizations.count == 2 %>
-      <%= link_to '<click to add>', '#' %>
+      <%= click_to_add(the_child) %>
     <% end %>
   </div>
   <div class="panel-footer height50">
