@@ -8,7 +8,11 @@
       <%= link_to organization.name, organization_url(organization.id) %>
       <br>
     <% end %>
-    <% if the_child.organizations.count == 1 %>
+    <% if the_child.organizations.count == 0 %>
+      <%= link_to '<click to add>', '#' %><br>
+      <%= link_to '<click to add>', '#' %><br>
+      <%= link_to '<click to add>', '#' %>
+    <% elsif the_child.organizations.count == 1 %>
       <%= link_to '<click to add>', '#' %><br>
       <%= link_to '<click to add>', '#' %>
     <% elsif the_child.organizations.count == 2 %>
