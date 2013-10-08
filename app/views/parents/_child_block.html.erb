@@ -8,7 +8,11 @@
       <%= link_to organization.name, organization_url(organization.id) %>
       <br>
     <% end %>
-    <% if the_child.organizations.count == 1 %>
+    <% if the_child.organizations.count == 0 %>
+      <%= link_to '<click to add>', '#' %><br>
+      <%= link_to '<click to add>', '#' %><br>
+      <%= link_to '<click to add>', '#' %>
+    <% elsif the_child.organizations.count == 1 %>
       <%= link_to '<click to add>', '#' %><br>
       <%= link_to '<click to add>', '#' %>
     <% elsif the_child.organizations.count == 2 %>
@@ -19,5 +23,3 @@
     <%= link_to '<i class="icon-collapse"></i> expand'.html_safe, child_url(the_child), remote: true, class: "pull-right" %>
   </div>
 </div>
-
-
