@@ -6,5 +6,5 @@ $('.row').append(child_block)
 setTimeout(function() { child_block.slideDown(); }, 1000);
 var notice = $('<div><%= j(render 'layouts/flash') %></div>');
 notice.css("display", "none");
-$('#notice').replaceWith(notice);
+$('h1').after(notice);
 setTimeout(function() { notice.slideDown(); }, 1000);
