@@ -34,7 +34,7 @@ class ChildrenController < ApplicationController
 
     respond_to do |format|
       if @child.save
-        flash.now[:notice] = "Child added successfully! You can now add permissions by clicking on the plus sign for any child."
+        flash.now[:notice] = "Child added successfully! You can now add permissions."
         format.js { render 'create' }
         format.html { redirect_to @child }
         format.json { render action: 'show', status: :created, location: @child }
