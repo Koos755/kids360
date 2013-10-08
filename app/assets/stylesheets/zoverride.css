@@ -1,3 +1,6 @@
+.mt15 {
+  margin-top: 15px;
+}
 .mb10 {
   margin-bottom: 10px
 }
@@ -10,4 +13,14 @@
 }
 .pt5 {
   padding-top: 5px;
+}
+.width250 {
+  width: 250px
+}
+.mr8 {
+  margin-right: 8px
+}
+
+.height50 {
+  height: 50px;
 }
