@@ -29,15 +29,16 @@ class AuthorizationsController < ApplicationController
   # POST /authorizations
   # POST /authorizations.json
   def create
-    @authorization = Authorization.new(authorization_params)
-
+    @authorization = Authorization.new
+    @authorization.child_id = params[:child_id]
     respond_to do |format|
-      if @authorization.save
-        format.html { redirect_to @authorization, notice: 'Authorization was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @authorization }
+      if Organization.find_by(name: params[:organization_name])
+        @authorization.organization_id = Organization.find_by(name: params[:organization_name]).id
+        @authorization.save
+        format.js
       else
-        format.html { render action: 'new' }
-        format.json { render json: @authorization.errors, status: :unprocessable_entity }
+        flash.now[:notice] = "Can't find that Organization, please add their details"
+        format.js render 'organization/new'
       end
     end
   end
