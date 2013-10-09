@@ -1,1 +1,6 @@
-$('form.form-inline').before('<%= j(render ) %>');
+var new_organization = $('<%= j(render 'children/authorization', authorization: @authorization, the_child: @authorization.child) %>');
+new_organization.hide();
+$('form.form-inline').before(new_organization);
+new_organization.slideDown();
+$('form.form-inline').remove();
+$('#child_id-<%= @authorization.child_id %>').replaceWith('<%= j(render 'parents/child_block', the_child: @authorization.child) %>');
