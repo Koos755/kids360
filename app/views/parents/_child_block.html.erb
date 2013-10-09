@@ -1,6 +1,6 @@
 <div class="panel panel-primary col-md-4" id="child_id-<%= the_child.id %>">
   <div class="panel-heading">
-    <%= link_to the_child.first_name, child_url(the_child.id), class: "btn" %>
+    <%= link_to the_child.first_name, child_url(the_child.id), remote: true, class: "btn" %>
     <span class="badge pull-right mt15"><%= the_child.organizations.count %></span>
   </div>
   <div class="panel-body">

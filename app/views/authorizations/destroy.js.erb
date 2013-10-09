@@ -1,0 +1,9 @@
+var flash = $('<%= j(render 'layouts/flash') %>');
+flash.hide();
+$('.modal-body h4').before(flash);
+flash.slideDown();
+var auth_to_delete = $('#authorization-<%= @authorization.id %>')
+auth_to_delete.slideUp();
+auth_to_delete.remove();
+$('#child_id-<%= @authorization.child_id %>').replaceWith('<%= j(render 'parents/child_block', the_child: @authorization.child) %>');
+
