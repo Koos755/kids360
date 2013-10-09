@@ -38,6 +38,7 @@ class AuthorizationsController < ApplicationController
            flash.now[:notice] = "Permission added for #{@authorization.organization.name}!"
            format.js
         else
+          format.js { render 'failed_create' }
         end
       else
         flash.now[:notice] = "Can't find that Organization, please add their details"
