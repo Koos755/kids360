@@ -4,7 +4,6 @@ $('#click_to_add').before(form);
 form.slideDown();
 $('input#organization_name').typeahead({
   valueKey: "name",
-  // local: ['Facebook', 'FaceAngel', 'FacePage', 'FaceHouse', 'FaceBom','Twitter', 'CTA'],
-  prefetch: 'http://localhost:3000/organizations.json',
+  prefetch: '<%= organizations_url %>',
   limit: 5
 });
