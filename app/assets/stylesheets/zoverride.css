@@ -1,11 +1,17 @@
 .mt15 {
   margin-top: 15px;
 }
+.mt5 {
+  margin-top: 5px;
+}
 .mb10 {
   margin-bottom: 10px
 }
 .mb0 {
   margin-bottom: 0px
+}
+.mb1 {
+  margin-top: -3px;
 }
 .ptb5 {
   padding-bottom: 5px;
@@ -24,6 +30,9 @@
 .height50 {
   height: 50px;
 }
+.height34 {
+  height: 34px;
+}
 .modal-header {
   background-color: #3a9ac4;
 }
@@ -33,4 +42,19 @@
 .modal-footer {
   background-color: #f5f5f5;
   margin-top: 0px;
+}
+.line-height0 {
+  line-height: 25px;
+}
+.tt-hint {
+  margin-top: -3px;
+}
+.tt-dropdown-menu {
+  background-color: white;
+  width: 197px;
+  border: 1px solid black;
+}
+.tt-suggestions {
+  margin: 0px;
+  padding: 0px;
 }

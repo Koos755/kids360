@@ -15,6 +15,11 @@ class AuthorizationsController < ApplicationController
   # GET /authorizations/new
   def new
     @authorization = Authorization.new
+    @child = Child.find(params[:child])
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   # GET /authorizations/1/edit

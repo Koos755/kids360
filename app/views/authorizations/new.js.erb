@@ -1,0 +1,11 @@
+var form = $('<%= j(render 'form', authorization: @authorization, child: @child) %>')
+form.hide();
+$('#click_to_add').before(form);
+form.slideDown();
+$('input#organization_name').typeahead({
+  name: 'name',
+  valueKey: "name",
+  // local: ['Facebook', 'FaceAngel', 'FacePage', 'FaceHouse', 'FaceBom','Twitter', 'CTA'],
+  prefetch: 'http://localhost:3000/organizations.json',
+  limit: 5
+});

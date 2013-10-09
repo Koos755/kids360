@@ -1,25 +1,10 @@
-<%= form_for(@authorization) do |f| %>
-  <% if @authorization.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@authorization.errors.count, "error") %> prohibited this authorization from being saved:</h2>
-
-      <ul>
-      <% @authorization.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :organization_id %><br>
-    <%= f.number_field :organization_id %>
-  </div>
-  <div class="field">
-    <%= f.label :child_id %><br>
-    <%= f.number_field :child_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<%= form_tag(authorizations_url, method: :post, class: "form-inline", remote: true) do %>
+  <div class="form-group mt5">
+    <%= text_field_tag :organization_name, nil, class: "mb1 height34"%>
+    <%= hidden_field_tag :child_id, value: @child.id %>
+    <%= button_tag '<i class="icon-arrow-right"></i>'.html_safe, class: "btn-primary line-height0" %>
   </div>
 <% end %>
+
+
+

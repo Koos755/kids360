@@ -17,7 +17,7 @@
           <% child.authorizations.each do |the_authorization| %>
             <%= render 'authorization', authorization: the_authorization, the_child: child %>
           <% end %>
-          <li>
+          <li id="click_to_add">
             <%= click_to_add(child) %>
           </li>
         </ul>

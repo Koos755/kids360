@@ -1,4 +1,3 @@
 json.array!(@organizations) do |organization|
-  json.extract! organization, :name, :email
-  json.url organization_url(organization, format: :json)
+  json.extract! organization, "name"
 end
