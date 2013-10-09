@@ -1,0 +1,4 @@
+<li id="authorization-<%= authorization.id %>">
+  <%= authorization.organization.name %>
+  <%= link_to '<i class="icon-trash"></i>'.html_safe, authorization_url(authorization), class: "pull-right", remote: true, method: :delete, data: { confirm: "Are you sure you would like to delete #{authorization.organization.name}'s permission for #{the_child.first_name}"} %>
+</li>

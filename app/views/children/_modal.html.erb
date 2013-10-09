@@ -14,11 +14,8 @@
       <div class="modal-body">
         <h4>Organizations with Permission:</h4>
         <ul>
-          <% child.organizations.each do |organization| %>
-          <li id="<%= "org-#{organization.id}-child-#{child.id}" %>">
-            <%= organization.name %>
-            <%= link_to '<i class="icon-trash"></i>'.html_safe, authorization_url, class: "pull-right", remote: true, method: :delete, data: { confirm: "Are you sure you would like to delete #{organization.name}'s permission for #{child.first_name}"} %>
-          </li>
+          <% child.authorizations.each do |the_authorization| %>
+            <%= render 'authorization', authorization: the_authorization, the_child: child %>
           <% end %>
           <li>
             <%= click_to_add(child) %>
