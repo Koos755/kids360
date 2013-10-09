@@ -4,3 +4,7 @@ $('form.form-inline').before(new_organization);
 new_organization.slideDown();
 $('form.form-inline').remove();
 $('#child_id-<%= @authorization.child_id %>').replaceWith('<%= j(render 'parents/child_block', the_child: @authorization.child) %>');
+var flash = $('<%= j(render 'layouts/flash') %>');
+flash.hide();
+$('.modal-body h4').before(flash);
+flash.slideDown();

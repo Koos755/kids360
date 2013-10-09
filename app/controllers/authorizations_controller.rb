@@ -34,8 +34,11 @@ class AuthorizationsController < ApplicationController
     respond_to do |format|
       if Organization.find_by(name: params[:organization_name])
         @authorization.organization_id = Organization.find_by(name: params[:organization_name]).id
-        @authorization.save
-        format.js
+        if @authorization.save
+           flash.now[:notice] = "Permission added for #{@authorization.organization.name}!"
+           format.js
+        else
+        end
       else
         flash.now[:notice] = "Can't find that Organization, please add their details"
         format.js render 'organization/new'
