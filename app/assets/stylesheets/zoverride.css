@@ -24,3 +24,13 @@
 .height50 {
   height: 50px;
 }
+.modal-header {
+  background-color: #3a9ac4;
+}
+.modal-body {
+  background-color: #ecf9ff;
+}
+.modal-footer {
+  background-color: #f5f5f5;
+  margin-top: 0px;
+}
