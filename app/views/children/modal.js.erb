@@ -1,0 +1,12 @@
+var modal = $('<%= j(render 'modal', child: @child) %>');
+$('.btn-danger').after(modal);
+var form = $('<%= j(render 'authorizations/form', authorization: @authorization, child: @child) %>')
+form.hide();
+$('#click_to_add').before(form);
+form.slideDown();
+$('input#organization_name').typeahead({
+  valueKey: "name",
+  prefetch: '<%= organizations_url %>',
+  limit: 5
+});
+$('#myModal').modal();

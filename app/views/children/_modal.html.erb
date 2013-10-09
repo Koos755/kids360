@@ -18,7 +18,7 @@
             <%= render 'authorization', authorization: the_authorization, the_child: child %>
           <% end %>
           <li id="click_to_add">
-            <%= click_to_add(child) %>
+            <%= link_to '<i class="icon-plus-sign-alt"></i><click to>'.html_safe, new_authorization_url(child: child), remote: true %>
           </li>
         </ul>
       </div>

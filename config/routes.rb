@@ -9,6 +9,8 @@ Kids360::Application.routes.draw do
 
   root 'parents#index'
 
+  get 'children/:id/modal/' => 'children#modal', as: 'children_modal'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
