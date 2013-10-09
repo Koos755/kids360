@@ -12,7 +12,7 @@
         </h6>
       </div>
       <div class="modal-body">
-        <h6>Organizations with Permission:</h6>
+        <h4>Organizations with Permission:</h4>
         <ul>
           <% child.organizations.each do |organization| %>
           <li id="<%= "org-#{organization.id}-child-#{child.id}" %>">
@@ -27,7 +27,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
