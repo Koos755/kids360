@@ -1,6 +1,6 @@
 <%= form_tag(authorizations_url, method: :post, class: "form-inline", remote: true) do %>
   <div class="form-group mt5">
-    <%= text_field_tag :organization_name, nil, class: "mb1 height34"%>
+    <%= text_field_tag :organization_name, nil, class: "mb1 height34", placeholder: "Add Organization" %>
     <%= hidden_field_tag :child_id, @child.id %>
     <%= button_tag '<i class="icon-arrow-right"></i>'.html_safe, class: "btn-primary line-height0" %>
   </div>
