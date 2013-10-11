@@ -1,3 +1,3 @@
 var modal = $('<%= j(render 'modal', child: @child) %>');
-$('.btn-danger').after(modal);
+$('#myModal').replaceWith(modal);
 $('#myModal').modal();
