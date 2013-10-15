@@ -1,8 +1,18 @@
+.mt-20-mr22 {
+  margin-top: -20px;
+  margin-right: 22px;
+}
+.mt5 {
+  margin-top: 5px;
+}
 .mt15 {
   margin-top: 15px;
 }
 .mt5 {
   margin-top: 5px;
+}
+.mr8 {
+  margin-right: 8px
 }
 .mb10 {
   margin-bottom: 10px
@@ -13,6 +23,10 @@
 .mb1 {
   margin-top: -3px;
 }
+.ml10 {
+  margin-left: 10px;
+}
+
 .ptb5 {
   padding-bottom: 5px;
   padding-top: 5px;
@@ -23,9 +37,7 @@
 .width250 {
   width: 250px
 }
-.mr8 {
-  margin-right: 8px
-}
+
 
 .height50 {
   height: 50px;
@@ -58,4 +70,7 @@
 .tt-suggestions {
   margin: 0px;
   padding: 0px;
+}
+.display-inline {
+  display: inline;
 }

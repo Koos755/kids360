@@ -1,10 +1,12 @@
-<%= form_for(@child, remote: true) do |f| %>
-  <div class="form-group mt15">
-    <%= f.hidden_field :parent_id, value: @child.parent_id %>
-    <%= f.text_field :first_name, placeholder: "First Name", class: "width250 mr8" %>
-    <%= f.text_field :last_name, placeholder: "Last Name", class: "width250 mr8" %><br>
-    <%= f.text_field :email, placeholder: "Email", class: "width250 mr8" %><br>
-    <%= f.text_field :phone_number, placeholder: "Phone Number", class: "width250 mr8" %><br>
-    <%= f.submit "Save Changes", class: "btn-warning" %>
-  </div>
-<% end %>
+<div id="kids_data">
+  <%= form_for(@child, class: "ml10", remote: true) do |f| %>
+    <div class="form-group ml10">
+      <%= f.hidden_field :parent_id, value: @child.parent_id %>
+      <h3><%= f.text_field :first_name, placeholder: "First Name", class: "width250 mr8" %>
+      <%= f.text_field :last_name, placeholder: "Last Name", class: "width250 mr8" %></h3>
+      <h6><%= f.text_field :email, placeholder: "Email", class: "width250" %></h6>
+      <h6 class="width250 display-inline"><%= f.text_field :phone_number, placeholder: "Phone Number", class: "width250" %></h6>
+      <%= f.submit "Save Changes", class: "btn btn-warning mt-20-mr22 pull-right" %>
+    </div>
+  <% end %>
+</div>
