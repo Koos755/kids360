@@ -58,7 +58,7 @@ class ChildrenController < ApplicationController
   def update
     respond_to do |format|
       if @child.update(child_params)
-        flash[:notice] = 'Child was successfully updated.'
+        flash.now[:notice] = 'Child was successfully updated.'
         format.html { redirect_to @child }
         format.json { head :no_content }
         format.js
