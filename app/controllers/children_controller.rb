@@ -63,6 +63,7 @@ class ChildrenController < ApplicationController
         format.json { head :no_content }
         format.js
       else
+        format.js { render 'failed_update'}
         format.html { render action: 'edit' }
         format.json { render json: @child.errors, status: :unprocessable_entity }
       end
