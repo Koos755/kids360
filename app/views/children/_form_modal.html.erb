@@ -1,0 +1,10 @@
+<%= form_for(@child, remote: true) do |f| %>
+  <div class="form-group mt15">
+    <%= f.hidden_field :parent_id, value: @child.parent_id %>
+    <%= f.text_field :first_name, placeholder: "First Name", class: "width250 mr8" %>
+    <%= f.text_field :last_name, placeholder: "Last Name", class: "width250 mr8" %><br>
+    <%= f.text_field :email, placeholder: "Email", class: "width250 mr8" %><br>
+    <%= f.text_field :phone_number, placeholder: "Phone Number", class: "width250 mr8" %><br>
+    <%= f.submit "Save Changes", class: "btn-warning" %>
+  </div>
+<% end %>

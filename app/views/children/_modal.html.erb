@@ -3,12 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3 class="modal-title"><%= "#{child.first_name} #{child.last_name}" %></h3>
-        <%= link_to '<i class="icon-edit-sign"></i> Edit'.html_safe, '#', class: "btn btn-warning pull-right" %>
-        <h6>
-          <%= child.email %><br>
-          <%= child.phone_number %>
-        </h6>
+        <%= render 'kids_data', the_child: child %>
       </div>
       <div class="modal-body">
         <h4>Organizations with Permission:</h4>

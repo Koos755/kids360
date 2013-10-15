@@ -1,0 +1,8 @@
+<div id="kids_data">
+  <h3 class="modal-title"><%= "#{the_child.first_name} #{the_child.last_name}" %></h3>
+  <%= link_to '<i class="icon-edit-sign"></i> Edit'.html_safe, '#', class: "btn btn-warning pull-right" %>
+  <h6>
+    <%= the_child.email %><br>
+    <%= the_child.phone_number %>
+  </h6>
+</div>
