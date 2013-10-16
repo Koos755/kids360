@@ -8,3 +8,4 @@ var notice = $('<div><%= j(render 'layouts/flash') %></div>');
 notice.css("display", "none");
 $('h1').after(notice);
 setTimeout(function() { notice.slideDown(); }, 1000);
+setTimeout(function() { $('.btn-danger').slideToggle(); }, 1500);

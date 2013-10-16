@@ -1,0 +1,7 @@
+<%= form_for(@organization, remote: true) do |f| %>
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Organization name" %>
+    <%= f.text_field :email, placeholder: "Organization email" %>
+    <%= f.button "Create and Add", class: "btn btn-warning" %>
+  </div>
+<% end %>

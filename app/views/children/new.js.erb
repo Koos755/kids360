@@ -2,5 +2,6 @@ var child_element = $('<%= j(render 'form') %>')
 child_element.css("display", "none")
 $('.btn-danger').before(child_element)
 child_element.slideDown()
+$('.btn-danger').slideToggle();
 
 
