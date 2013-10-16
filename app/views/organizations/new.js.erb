@@ -1,1 +1,5 @@
 $('.form-inline').replaceWith('<%= j(render 'organizations/form_modal', the_organization: @organization, the_child: @child) %>');
+var flash = $('<%= j(render 'layouts/flash') %>');
+flash.hide();
+$('.modal-body h4').before(flash);
+flash.slideDown();

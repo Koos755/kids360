@@ -1,9 +1,9 @@
 <%= form_tag(organizations_url, method: :post, class: "form-inline", remote: true) do %>
-  <div class="form-group">
+  <div class="form-group mt15">
     <%= text_field_tag :name, the_organization.name, placeholder: "Organization name" %>
     <%= text_field_tag :email, nil, placeholder: "Organization email" %>
     <%= hidden_field_tag :child_id, the_child.id %>
-    <%= button_tag "Create and Add", class: "btn btn-warning" %>
+    <%= button_tag "Create and Add", class: "btn btn-warning mt15" %>
   </div>
 <% end %>
 
