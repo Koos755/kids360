@@ -1,6 +1,6 @@
 $('#kids_data').replaceWith('<%= j(render 'kids_data', the_child: @child) %>');
 var flash = $('<%= j(render 'layouts/flash') %>');
 flash.hide();
-$('.modal-header h3').after(flash);
+$('#kids_data').before(flash);
 flash.slideDown();
 
