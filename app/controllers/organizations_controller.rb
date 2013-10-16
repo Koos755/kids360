@@ -37,6 +37,23 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def create_add
+    @organization = Organization.new
+    @organization.name = params[:name]
+    @organization.email = params[:email]
+    respond_to do |format|
+      if @organization.save
+        @authorization = Authorization.new
+        @authorization.child_id = params[:child_id]
+        @authorization.organization_id = @organization.id
+        if @authorization.save
+          flash.now[:notice] ="Organization and Permission added!"
+          format.js { render 'create' }
+        end
+      end
+    end
+  end
+
   # PATCH/PUT /organizations/1
   # PATCH/PUT /organizations/1.json
   def update
