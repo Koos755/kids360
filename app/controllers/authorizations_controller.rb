@@ -44,8 +44,9 @@ class AuthorizationsController < ApplicationController
       else
         @organization = Organization.new
         @organization.name = params[:organization_name]
+        @child = Child.find(params[:child_id])
         flash.now[:notice] = "Can't find that Organization, please add their details"
-        format.js { render 'organization/new'}
+        format.js { render 'organizations/new'}
       end
     end
   end
