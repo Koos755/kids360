@@ -49,6 +49,8 @@ class OrganizationsController < ApplicationController
         if @authorization.save
           flash.now[:notice] ="Organization and Permission added!"
           format.js { render 'create' }
+        else
+          format.js {}
         end
       end
     end
