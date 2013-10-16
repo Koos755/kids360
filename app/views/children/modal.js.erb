@@ -1,5 +1,5 @@
 var modal = $('<%= j(render 'modal', child: @child) %>');
-$('.btn-danger').after(modal);
+$('#myModal').replaceWith(modal);
 var form = $('<%= j(render 'authorizations/form', authorization: @authorization, child: @child) %>')
 form.hide();
 $('#click_to_add').before(form);

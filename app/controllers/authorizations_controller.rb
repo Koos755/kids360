@@ -31,9 +31,10 @@ class AuthorizationsController < ApplicationController
   def create
     @authorization = Authorization.new
     @authorization.child_id = params[:child_id]
+    @organization = Organization.find_by(name: params[:organization_name])
     respond_to do |format|
-      if Organization.find_by(name: params[:organization_name])
-        @authorization.organization_id = Organization.find_by(name: params[:organization_name]).id
+      if @organization.present?
+        @authorization.organization_id = @organization.id
         if @authorization.save
            flash.now[:notice] = "Permission added for #{@authorization.organization.name}!"
            format.js
@@ -41,8 +42,10 @@ class AuthorizationsController < ApplicationController
           format.js { render 'failed_create' }
         end
       else
+        @organization = Organization.new
+        @organization.name = params[:organization_name]
         flash.now[:notice] = "Can't find that Organization, please add their details"
-        format.js render 'organization/new'
+        format.js { render 'organization/new'}
       end
     end
   end
