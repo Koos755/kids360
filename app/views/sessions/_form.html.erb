@@ -1,0 +1,7 @@
+<%= form_tag(sessions_url, method: :post, class: "form-inline") do %>
+  <div class="form-group mt5">
+    <%= text_field_tag :email, nil, class: "mb1 height34", placeholder: "Email" %>
+    <%= password_field_tag :password, nil, class: "mb1 height34", placeholder: "Password" %>
+    <%= button_tag '<i class="icon-arrow-right"></i>'.html_safe, class: "btn btn-primary line-height0" %>
+  </div>
+<% end %>
