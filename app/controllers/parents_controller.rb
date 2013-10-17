@@ -1,11 +1,12 @@
 class ParentsController < ApplicationController
   before_action :set_parent, only: [:show, :edit, :update, :destroy]
+  before_action :parent_is_current_parent, only: [:show, :edit, :update]
 
   # GET /parents
   # GET /parents.json
-  def index
-    @parents = Parent.all
-  end
+  # def index
+  #   @parents = Parent.all
+  # end
 
   def splash
     render layout: false
@@ -16,7 +17,6 @@ class ParentsController < ApplicationController
     if Child.where(parent_id: @parent.id).present?
       @children = Child.where(parent_id: @parent.id)
     end
-
   end
 
   # GET /parents/new
@@ -60,18 +60,25 @@ class ParentsController < ApplicationController
 
   # DELETE /parents/1
   # DELETE /parents/1.json
-  def destroy
-    @parent.destroy
-    respond_to do |format|
-      format.html { redirect_to parents_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @parent.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to parents_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_parent
       @parent = Parent.find(params[:id])
+    end
+
+    def parent_is_current_parent
+      if current_parent != @parent
+        flash[:error] = "Nice try, you can only view your own account."
+        redirect_to root_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
