@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    parent = Parent.find_by(params[:email])
+    parent = Parent.find_by(email: params[:email])
     if  parent.present? && parent.authenticate(params[:password])
       session[:parent_id] = parent.id
       redirect_to parent_url(parent)
