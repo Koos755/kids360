@@ -13,6 +13,10 @@
           <%= f.text_field :zip, placeholder: "Zip Code", class: "mt5 width300" %><br>
           <%= f.password_field :password, placeholder: "Password", class: "mt5 width300" %><br>
           <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "mt5 width300" %><br>
+          <div class="mt5">
+            <%= f.check_box :terms %>
+            I accept the <%= link_to "terms and conditions.", '#' %>
+          </div>
           <%= f.submit "sign up", class: "btn btn-primary mt5"%>
         </div>
       <% end %>
