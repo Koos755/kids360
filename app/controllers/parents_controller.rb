@@ -32,7 +32,7 @@ class ParentsController < ApplicationController
   # POST /parents.json
   def create
     @parent = Parent.new(parent_params)
-
+    @parent.terms = Time.now
     respond_to do |format|
       if @parent.save
         format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
@@ -83,6 +83,6 @@ class ParentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parent_params
-      params.require(:parent).permit(:first_name, :last_name, :phone_number, :email, :email_confirmed, :address, :city, :state, :zip, :password, :password_confirmation, :terms)
+      params.require(:parent).permit(:first_name, :last_name, :phone_number, :email, :email_confirmed, :address, :city, :state, :zip, :password, :password_confirmation)
     end
 end

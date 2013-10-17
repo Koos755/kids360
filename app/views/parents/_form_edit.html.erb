@@ -8,13 +8,9 @@
     <%= f.text_field :city, placeholder: "City", class: "mt5 width300" %><br>
     <%= f.text_field :state, placeholder: "State", class: "mt5 width300" %><br>
     <%= f.text_field :zip, placeholder: "Zip Code", class: "mt5 width300" %><br>
-    <%= f.password_field :password, placeholder: "Password*", class: "mt5 width300", :required => true %><br>
-    <%= f.password_field :password_confirmation, placeholder: "Confirm Password*", class: "mt5 width300", :required => true %><br>
-    <div class="mt5 color-black">
-      <%= f.check_box :terms, :required => true %>
-      I accept the <%= link_to "terms and conditions*.", '#' %>
-    </div>
-    <%= f.submit "sign up", class: "btn btn-primary mt15"%>
+    <%= f.password_field :password, placeholder: "Password", class: "mt5 width300" %><br>
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "mt5 width300" %><br>
+    <%= f.submit class: "btn btn-primary mt15"%>
   </div>
 <% end %>
 <p class="mt5 ml10 color-black">*Required</p>
