@@ -7,17 +7,19 @@ class SessionsController < ApplicationController
   def create
     parent = Parent.find_by(email: params[:email])
     if  parent.present? && parent.authenticate(params[:password])
+      flash[:notice] = "Successfully signed in!"
       session[:parent_id] = parent.id
       redirect_to parent_url(parent)
     else
-      flash.now[:error] = "Something went wrong, please try again."
+      flash[:error] = "Something went wrong, please try again."
       render 'new'
     end
   end
 
   def destroy
     reset_session
-    redirect_to root_url, notice: "Successfully signed out"
+    flash[:notice] = "Successfully signed out"
+    redirect_to root_url
   end
 
 end
