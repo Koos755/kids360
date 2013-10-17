@@ -37,7 +37,7 @@
     </div>
     <div class="row inner-page">
       <div class="col-md-8 col-md-push-4 lazy-container">
-        <img class="lazy" alt="Looks great on every device" src="assets/logo1-trans.png" data-original="assets/logo1-trans.png" />
+        <%= image_tag "logo1-trans.png", class: "lazy", alt: "Looks great on every device", data: "logo1-trans.png" %>
       </div>
       <div class="col-md-4 col-md-pull-8">
         <ul class="big-list">
@@ -79,7 +79,7 @@
 
     <div class="row inner-page">
       <div class="col-md-6 lazy-container">
-        <img class="figurette lazy" src="assets/two-phones.png" data-original="assets/two-phones.png" alt="Zombie ipsum" />
+        <%= image_tag "two-phones.png", class: "figurette lazy", alt: "Zombie ipsum", data: "two-phones.png" %>
       </div>
       <div class="col-md-6">
         <h3>All artwork included</h3>
@@ -101,7 +101,6 @@
       <div class="col-md-6 col-md-push-6">
         <div class="btn-container figurette">
           <%= image_tag "video.png", alt: "Play video" %>
-          <img src="/assets/video.png" alt="Play video" />
           <a class="lightbox iframe btn-play" target="_blank" href="http://vimeo.com/61693087"><i class="icon-play"></i></a>
         </div>
       </div>
@@ -127,7 +126,7 @@
     <!-- Vectors -->
     <div class="row inner-page">
       <div class="col-md-6 lazy-container">
-        <img class="figurette lazy" alt="Original vectors" src="assets/responsive-vectors.png" data-original="assets/responsive-vectors.png" />
+        <%= image_tag "responsive-vectors.png", class: "figurette lazy", alt: "Original vectors", data: "assets/responsive-vectors.png" %>
       </div>
       <div class="col-md-6">
         <h3>Kids360</h3>
@@ -144,7 +143,7 @@
       <div class="col-md-offset-1 col-md-10">
         <div class="lazy-container lazy-large btn-container loaded">
           <div class="btn-container">
-            <img class="figurette lazy " src="assets/laptop-blue@2x.png" data-original="assets/laptop-blue@2x.png" alt="view image in lightbox" style="display: inline;">
+            <%= image_tag "laptop-blue@2x.png", class: "figurette lazy", data: "assets/laptop-blue@2x.png", alt: "view image in lightbox", style: "display: inline;" %>
             <a href="img/superman.jpg" class="lightbox btn-play" target="_blank">
               <i class="icon-zoom-in"></i>
             </a>
@@ -176,7 +175,7 @@
     </div>
     <div class="row inner-page">
       <div class="col-md-6  lazy-container">
-        <img class="figurette lazy" src="assets/logo1-trans.png" data-original="assets/logo1-trans.png" alt="Our workspace" />
+        <%= image_tag "logo1-trans.png", class: "figurette lazy", alt: "Our workspace", data: "assets/logo1-trans.png" %>
       </div>
       <div class="col-md-6">
         <h3>Kids360 is the solution to give childcare providers the ability to react quickly in the event of an emergency.</h3>
@@ -189,7 +188,7 @@
     <!-- Team -->
     <div class="row inner-page team">
       <div class="col-md-6">
-        <img class="pull-left" src="assets/cookies2.png" alt="A cookie" />
+        <%= image_tag "cookies2.png", class: "pull-left", alt: "A cookie" %>
         <h4>Audrey Jones</h4>
         <p>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis.</p>
         <ul>
@@ -205,7 +204,7 @@
         </ul>
       </div>
       <div class="col-md-6 team2">
-        <img class="pull-left" src="assets/cookies.png" alt="A cookie" />
+        <%= image_tag "cookies.png", class: "pull-left", alt: "A cookie" %>
         <h4>Demarcus Bowser</h4>
         <p>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis.</p>
         <ul>
@@ -240,7 +239,7 @@
       </div>
       <div class="col-md-6">
         <div class="btn-container centered lazy-container text-center">
-          <img src="assets/map.png" class="lazy figurette" alt="Open the map" data-original="assets/map.png" />
+          <%= image_tag "map.png", class: "lazy figurette", alt: "Open the map", data: "assets/map.png" %>
           <a class="lightbox iframe  btn-map" target="blank" title="Open google maps" href="https://www.google.com/maps/preview#!data=!1m4!1m3!1d54789!2d-90.0031135!3d35.13424"><i class="pull-left icon-map-marker"></i><div>Memphis,<br />Tennessee,<br /> Kids360</div></a>
         </div>
       </div>
