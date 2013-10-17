@@ -11,6 +11,9 @@
 .mt25 {
   margin-top: 25px;
 }
+.mt100 {
+  margin-top: 100px
+}
 .mr8 {
   margin-right: 8px
 }
@@ -37,7 +40,12 @@
 .width250 {
   width: 250px
 }
-
+.width300 {
+  width: 300px;
+}
+.width600 {
+  width: 600px
+}
 
 .height50 {
   height: 50px;
@@ -73,4 +81,21 @@
 }
 .display-inline {
   display: inline;
+}
+
+#register-wraper {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  margin-top: 25px;
+  margin-bottom: 70px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background: white;
+  text-align: center;
 }

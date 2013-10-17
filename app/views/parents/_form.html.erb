@@ -1,57 +1,24 @@
-<%= form_for(@parent) do |f| %>
-  <% if @parent.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@parent.errors.count, "error") %> prohibited this parent from being saved:</h2>
-
-      <ul>
-      <% @parent.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<div class="row">
+  <div class="col-md-4 col-lg-4 pull-left">
+    <div id="register-wraper">
+      <%= form_for(@parent, id: "register-form") do |f| %>
+        <div class="form-group">
+          <%= f.text_field :first_name, placeholder: "First Name", class: "mt5 width300" %><br>
+          <%= f.text_field :last_name, placeholder: "Last Name", class: "mt5 width300" %><br>
+          <%= f.text_field :phone_number, placeholder: "Phone Number", class: "mt5 width300" %><br>
+          <%= f.text_field :email, placeholder: "Email", class: "mt5 width300" %><br>
+          <%= f.text_field :address, placeholder: "Address", class: "mt5 width300" %><br>
+          <%= f.text_field :city, placeholder: "City", class: "mt5 width300" %><br>
+          <%= f.text_field :state, placeholder: "State", class: "mt5 width300" %><br>
+          <%= f.text_field :zip, placeholder: "Zip Code", class: "mt5 width300" %><br>
+          <%= f.password_field :password, placeholder: "Password", class: "mt5 width300" %><br>
+          <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "mt5 width300" %><br>
+          <%= f.submit "sign up", class: "btn btn-primary mt5"%>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="form-group">
-    <!-- <#%= f.label :first_name %><br> -->
-    <%= f.text_field :first_name, placeholder: "First Name" %>
   </div>
-  <div class="form-group">
-    <!-- <#%= f.label :last_name %><br> -->
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
+  <div class="col-md-6 col-md-offset-1 col-lg-6 col-lg-offset-1">
+    <%= image_tag "logo1-trans.png", class: "width600 mt100" %>
   </div>
-  <div class="form-group">
-    <!-- <#%= f.label :phone_number %><br> -->
-    <%= f.text_field :phone_number, placeholder: "Phone Number" %>
-  </div>
-  <div class="form-group">
-    <!-- <#%= f.label :email %><br> -->
-    <%= f.text_field :email, placeholder: "Email" %>
-  </div>
-  <div class="form-group">
-    <!-- <#%= f.label :address %><br> -->
-    <%= f.text_field :address, placeholder: "Address" %>
-  </div>
-  <div class="form-group">
-    <!-- <#%= f.label :city %><br> -->
-    <%= f.text_field :city, placeholder: "City" %>
-  </div>
-  <div class="form-group">
-    <!-- <#%= f.label :state %><br> -->
-    <%= f.text_field :state, placeholder: "State" %>
-  </div>
-  <div class="form-group">
-    <!-- <#%= f.label :zip %><br> -->
-    <%= f.text_field :zip, placeholder: "Zip Code" %>
-  </div>
-  <div class="form-group">
-    <!-- <#%= f.label :password %><br> -->
-    <%= f.password_field :password, placeholder: "Password" %>
-  </div>
-  <div class="form-group">
-    <!-- <#%= f.label :password_confirmation %><br> -->
-    <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "sign up", class: "btn btn-primary"%>
-  </div>
-<% end %>
+</div>
