@@ -7,6 +7,9 @@ class ParentsController < ApplicationController
     @parents = Parent.all
   end
 
+  def splash
+    render layout: false
+  end
   # GET /parents/1
   # GET /parents/1.json
   def show

@@ -7,7 +7,7 @@ Kids360::Application.routes.draw do
 
   resources :parents
 
-  root 'parents#index'
+  root 'parents#splash'
 
   get 'children/:id/modal/' => 'children#modal', as: 'children_modal'
 
