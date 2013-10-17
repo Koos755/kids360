@@ -13,4 +13,8 @@ Kids360::Application.routes.draw do
 
   post 'organizations/add' => 'organizations#create_add', as: 'organization_create_add'
 
+  get 'sessions/new' => 'sessions#new', as: 'new_session'
+  post 'sessions/' => 'sessions#create', as: 'sessions'
+  delete 'sessions/' => 'sessions#destroy'
+
 end
