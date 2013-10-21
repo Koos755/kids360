@@ -52,10 +52,7 @@ class SessionsController < ApplicationController
 
   def confirm
     token = Token.new
-    token.create_token_value
-    token.parent_id = current_parent.id
-    token.token_type = "confirmation"
-    if token.save
+    if token.create_confirmation_token(current_parent)
       flash[:notice] = "Email to confirm email address sent!"
       redirect_to parent_url(current_parent)
     else
