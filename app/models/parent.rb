@@ -7,4 +7,9 @@ class Parent < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :phone_number, presence: true
 
+  def confirm
+    self.email_confirmed = true
+    self.save
+  end
+
 end

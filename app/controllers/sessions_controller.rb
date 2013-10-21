@@ -26,13 +26,28 @@ class SessionsController < ApplicationController
     token = Token.find_by(value: params[:value])
 
     if token.present?
-      if token.token_type == "confirmation"
-
-      elsif token.token_type == "password_reset"
+      if (Time.now - token.created_at) < 7200
+        if token.token_type == "confirmation"
+          parent = Parent.find_by(id: token.parent_id)
+          if parent.confirm
+            flash[:success] = "Your email has been confirmed"
+            token.destroy
+            redirect_to parent_url(parent)
+          end
+        elsif token.token_type == "password_reset"
+          @parent = Parent.find_by(id: token.parent_id)
+          token.destroy
+          render 'reset_password'
+        else
+          redirect_to root_url
+        end
       else
+        token.destroy
+        flash[:error] = "That token has expired. Please repeat the request and complete action within 2 hours"
         redirect_to root_url
       end
     else
+      flash[:error] = "Unknown token request"
       redirect_to root_url
     end
   end
