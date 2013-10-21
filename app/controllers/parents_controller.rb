@@ -39,6 +39,7 @@ class ParentsController < ApplicationController
     @parent.terms = Time.now
     respond_to do |format|
       if @parent.save
+        session[:parent_id] = @parent.id
         format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
         format.json { render action: 'show', status: :created, location: @parent }
       else
