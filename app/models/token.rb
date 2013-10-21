@@ -10,4 +10,6 @@ class Token < ActiveRecord::Base
   def create_token_value
     self.value = SecureRandom.urlsafe_base64(30)
   end
+
+
 end

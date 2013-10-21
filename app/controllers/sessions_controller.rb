@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
         if token.token_type == "confirmation"
           parent = Parent.find_by(id: token.parent_id)
           if parent.confirm
-            flash[:success] = "Your email has been confirmed"
+            flash[:notice] = "Your email has been confirmed! You can now use the system."
             token.destroy
             redirect_to parent_url(parent)
           end
@@ -38,8 +38,6 @@ class SessionsController < ApplicationController
           @parent = Parent.find_by(id: token.parent_id)
           token.destroy
           render 'reset_password'
-        else
-          redirect_to root_url
         end
       else
         token.destroy
@@ -48,6 +46,20 @@ class SessionsController < ApplicationController
       end
     else
       flash[:error] = "Unknown token request"
+      redirect_to root_url
+    end
+  end
+
+  def confirm
+    token = Token.new
+    token.create_token_value
+    token.parent_id = current_parent.id
+    token.token_type = "confirmation"
+    if token.save
+      flash[:notice] = "Email to confirm email address sent!"
+      redirect_to parent_url(current_parent)
+    else
+      flash[:error] = "Something went wrong, please try again."
       redirect_to root_url
     end
   end

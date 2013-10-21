@@ -14,11 +14,12 @@ class ParentsController < ApplicationController
   # GET /parents/1
   # GET /parents/1.json
   def show
-    if @parent.email_confirmed != true
-      render 'email_unconfirmed'
-    end
-    if Child.where(parent_id: @parent.id).present?
+    if @parent.email_confirmed
+      if Child.where(parent_id: @parent.id).present?
       @children = Child.where(parent_id: @parent.id)
+      end
+    else
+      render 'email_unconfirmed'
     end
   end
 
