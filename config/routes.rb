@@ -17,4 +17,6 @@ Kids360::Application.routes.draw do
   post 'sessions/' => 'sessions#create', as: 'sessions'
   delete 'sessions/' => 'sessions#destroy'
 
+  get 'token/:value' => "sessions#token", as: 'token'
+
 end

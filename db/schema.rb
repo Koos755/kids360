@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131017165821) do
+ActiveRecord::Schema.define(version: 20131021191749) do
 
   create_table "authorizations", force: true do |t|
     t.integer  "organization_id"
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 20131017165821) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "terms"
+  end
+
+  create_table "tokens", force: true do |t|
+    t.string   "value"
+    t.integer  "parent_id"
+    t.string   "token_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

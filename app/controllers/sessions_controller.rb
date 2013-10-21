@@ -22,4 +22,18 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
+  def token
+    token = Token.find_by(value: params[:value])
+
+    if token.present?
+      if token.token_type == "confirmation"
+
+      elsif token.token_type == "password_reset"
+      else
+        redirect_to root_url
+      end
+    else
+      redirect_to root_url
+    end
+  end
 end
