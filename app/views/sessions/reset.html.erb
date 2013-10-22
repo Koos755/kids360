@@ -1,0 +1,11 @@
+<script type="text/javascript">
+  $('body').addClass('color-6');
+</script>
+<h1>Request Password Reset:</h1>
+<p>Please enter your email below, and we will send you instructions on how the reset you password:</p>
+<%= form_tag(reset_url, method: :post, class: "form-inline") do %>
+  <div class="form-group mt5">
+    <%= text_field_tag :email, nil, class: "mb1 height34", placeholder: "Email" %>
+    <%= button_tag '<i class="icon-arrow-right"></i>'.html_safe, class: "btn btn-primary line-height0" %>
+  </div>
+<% end %>

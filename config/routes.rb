@@ -20,4 +20,8 @@ Kids360::Application.routes.draw do
   get 'token/confirmation_request' => "sessions#confirm", as: 'confirm'
   get 'token/:value' => "sessions#token", as: 'token'
 
+  get 'sessions/reset' => 'sessions#reset', as: 'reset'
+  post 'sessions/reset' => 'sessions#submit_reset'
+  delete 'sessions/reset' => 'sessions#new_password'
+
 end

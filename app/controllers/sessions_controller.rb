@@ -60,4 +60,35 @@ class SessionsController < ApplicationController
       redirect_to root_url
     end
   end
+
+  def reset
+  end
+
+  def submit_reset
+    @email = params[:email]
+    parent = Parent.find_by(email: @email)
+    if  parent.present?
+      tokens = Token.where(parent_id: parent.id)
+      tokens.destroy_all
+      token = Token.new
+      token.create_password_reset_token(parent)
+    else
+      ParentMailer.no_account_email(@email).deliver
+    end
+    render 'email_send'
+  end
+
+  def new_password
+    parent = Parent.find_by(id: params[:parent_id])
+    parent.password = params[:password]
+    parent.password_confirmation = params[:password_confirmation]
+    if parent.save
+      session[:parent_id] = parent.id
+      flash[:notice] = "Password Successfully changed"
+      redirect_to parent_url(parent)
+    else
+      flash[:error] = "Something went wrong, please try again"
+      redirect_to root_url
+    end
+  end
 end

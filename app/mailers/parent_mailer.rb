@@ -13,4 +13,8 @@ class ParentMailer < ActionMailer::Base
     @url = token_url(token.value)
     mail(to: @parent.email, subject: "Resetting your Kids360 password")
   end
+
+  def no_account_email(email)
+    mail(to: email, subject: "No account associated with this email")
+  end
 end

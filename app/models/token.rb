@@ -16,6 +16,13 @@ class Token < ActiveRecord::Base
     self.save
   end
 
+  def create_password_reset_token(parent)
+    self.value = SecureRandom.urlsafe_base64(50)
+    self.parent_id = parent.id
+    self.token_type = "password_reset"
+    self.save
+  end
+
   def send_email
     if self.token_type == "confirmation"
       ParentMailer.confirmation_email(self).deliver
