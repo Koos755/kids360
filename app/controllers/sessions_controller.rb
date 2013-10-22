@@ -91,4 +91,10 @@ class SessionsController < ApplicationController
       redirect_to root_url
     end
   end
+
+  def contact
+    ParentMailer.contact_form_email(params[:name], params[:email], params[:story]).deliver
+    flash[:notice] = "Thx for making contact, we will be in touch soon!"
+    redirect_to root_url
+  end
 end

@@ -17,4 +17,11 @@ class ParentMailer < ActionMailer::Base
   def no_account_email(email)
     mail(to: email, subject: "No account associated with this email")
   end
+
+  def contact_form_email(name, email, message)
+    @name = name
+    @email = email
+    @message = message
+    mail(from: 'contact@kids360now.com', to: 'jadriaanse@me.com', subject: "Contact form from Kids360")
+  end
 end
