@@ -1,5 +1,6 @@
 class ParentMailer < ActionMailer::Base
-  default from: "team@kids360now.com"
+  # default from: "team@kids360now.com"
+  default from: 'team@kids360now.com'
 
   def confirmation_email(token)
     @parent = token.parent
