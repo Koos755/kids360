@@ -210,8 +210,7 @@
           </li>
           <li class="social">
             <a href="#about"><i class="icon-facebook-sign"></i></a>
-            <a href="#about"><i class="icon-twitter"></i></a>
-            <a href="#about"><i class="icon-github-sign"></i></a>
+            <%= link_to '<i class="icon-twitter"></i>'.html_safe, 'https://twitter.com/pennycoffee' %>
           </li>
         </ul>
       </div>
@@ -222,12 +221,11 @@
         <ul>
           <li><i class="icon-home"></i>  <a href="prettystrap.com">http://prettystrap.com</a>
           </li>
-          <li><i class="icon-envelope-alt"></i>  <a href="info@email.com">info@email.com</a>
+          <li><i class="icon-envelope-alt"></i>  <a href="demarcus@kids360now.com">demarcus@kids360now.com</a>
           </li>
           <li class="social">
             <a href="#about"><i class="icon-facebook-sign"></i></a>
             <a href="#about"><i class="icon-twitter"></i></a>
-            <a href="#about"><i class="icon-github-sign"></i></a>
           </li>
         </ul>
       </div>
@@ -275,19 +273,8 @@
   </div> <!-- /newsletter -->
 
   <!-- The footer, social media icons, and copyright -->
-  <footer class="page color-5">
-    <div class="inner-page row">
-      <div class="col-md-6 social">
-        <a href="#contact"><i class="icon-twitter"></i></a>
-        <a href="#contact"><i class="icon-github-sign"></i></a>
-        <a href="#contact"><i class="icon-facebook-sign"></i></a>
-        <a href="#contact"><i class="icon-google-plus-sign"></i></a>
-      </div>
-      <div class="col-md-6 text-right copyright">
-        &copy; 2013 <a href="http://prettystrap.com" title="twitter bootstrap themes">prettystrap.com</a> | all rights reserved | <a href="#top" title="Got to top" class="scroll">To top <i class="icon-caret-up"></i></a>
-      </div>
-    </div>
-  </footer>
+  <%= render 'layouts/footer' %>
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>
   if (typeof jQuery == 'undefined') {
