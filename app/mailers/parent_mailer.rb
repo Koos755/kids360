@@ -22,6 +22,6 @@ class ParentMailer < ActionMailer::Base
     @name = name
     @email = email
     @message = message
-    mail(from: 'contact@kids360now.com', to: 'team@kids360now.com', subject: "Contact form from Kids360")
+    mail(from: 'contact@kids360now.com', to: 'team@kids360now.com', cc: @email, subject: "Contact form from Kids360")
   end
 end
