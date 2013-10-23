@@ -39,6 +39,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'rails_12factor', group: :production
 
 gem 'sendgrid'
+gem 'delayed_job_active_record'
 # Use unicorn as the app server
 # gem 'unicorn'
 

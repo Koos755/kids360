@@ -24,4 +24,9 @@ class ParentMailer < ActionMailer::Base
     @message = message
     mail(from: 'contact@kids360now.com', to: 'team@kids360now.com', cc: @email, subject: "Contact form from Kids360")
   end
+
+  def password_changed(parent)
+    @parent = parent
+    mail(to: @parent.email, subject: "Your Kids360 password has been changed")
+  end
 end

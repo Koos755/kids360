@@ -84,8 +84,8 @@ class SessionsController < ApplicationController
     parent.password_confirmation = params[:password_confirmation]
     if parent.save
       session[:parent_id] = parent.id
+      ParentMailer.password_changed(parent).deliver
       flash[:notice] = "Password Successfully changed"
-      #TODO send email confirming password changed
       redirect_to parent_url(parent)
     else
       flash[:error] = "Something went wrong, please try again"
