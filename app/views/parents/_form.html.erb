@@ -1,15 +1,15 @@
 <%= form_for(@parent, id: "register-form") do |f| %>
-  <div class="form-group">
-    <%= f.text_field :first_name, placeholder: "First Name*", class: "mt5 width300", :required => true %><br>
-    <%= f.text_field :last_name, placeholder: "Last Name*", class: "mt5 width300", :required => true %><br>
-    <%= f.text_field :phone_number, placeholder: "Phone Number*", class: "mt5 width300", :required => true %><br>
-    <%= f.text_field :email, placeholder: "Email*", class: "mt5 width300", :required => true %><br>
-    <%= f.text_field :address, placeholder: "Address", class: "mt5 width300" %><br>
-    <%= f.text_field :city, placeholder: "City", class: "mt5 width300" %><br>
-    <%= f.text_field :state, placeholder: "State", class: "mt5 width300" %><br>
-    <%= f.text_field :zip, placeholder: "Zip Code", class: "mt5 width300" %><br>
-    <%= f.password_field :password, placeholder: "Password*", class: "mt5 width300", :required => true %><br>
-    <%= f.password_field :password_confirmation, placeholder: "Confirm Password*", class: "mt5 width300", :required => true %><br>
+  <div class="form-group mt15">
+    <%= f.text_field :first_name, placeholder: "First Name*", class: "mt5 width380", :required => true %><br>
+    <%= f.text_field :last_name, placeholder: "Last Name*", class: "mt5 width380", :required => true %><br>
+    <%= f.text_field :phone_number, placeholder: "Phone Number*", class: "mt5 width380", :required => true %><br>
+    <%= f.text_field :email, placeholder: "Email*", class: "mt5 width380", :required => true %><br>
+    <%= f.text_field :address, placeholder: "Address", class: "mt5 width380" %><br>
+    <%= f.text_field :city, placeholder: "City", class: "mt5 width380" %><br>
+    <%= f.text_field :state, placeholder: "State", class: "mt5 width380" %><br>
+    <%= f.text_field :zip, placeholder: "Zip Code", class: "mt5 width380" %><br>
+    <%= f.password_field :password, placeholder: "Password*", class: "mt5 width380", :required => true %><br>
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password*", class: "mt5 width380", :required => true %><br>
     <div class="mt5 color-black">
       <%= f.check_box :terms, :required => true %>
       I accept the <%= link_to "terms and conditions*.", '#' %>

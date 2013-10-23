@@ -46,8 +46,8 @@
 .width250 {
   width: 250px
 }
-.width300 {
-  width: 300px;
+.width380 {
+  width: 380px;
 }
 .width600 {
   width: 600px
@@ -130,4 +130,7 @@
 .img112x39 {
   height: 39px;
   width: 112px;
+}
+.margin-auto {
+  margin: 0 auto;
 }
