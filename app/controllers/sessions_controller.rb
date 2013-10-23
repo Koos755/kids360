@@ -73,7 +73,7 @@ class SessionsController < ApplicationController
       token = Token.new
       token.create_password_reset_token(parent)
     else
-      ParentMailer.no_account_email(@email).deliver
+      ParentMailer.delay.no_account_email(@email)
     end
     render 'email_send'
   end
@@ -84,7 +84,7 @@ class SessionsController < ApplicationController
     parent.password_confirmation = params[:password_confirmation]
     if parent.save
       session[:parent_id] = parent.id
-      ParentMailer.password_changed(parent).deliver
+      ParentMailer.delay.password_changed(parent)
       flash[:notice] = "Password Successfully changed"
       redirect_to parent_url(parent)
     else
@@ -94,7 +94,7 @@ class SessionsController < ApplicationController
   end
 
   def contact
-    ParentMailer.contact_form_email(params[:name], params[:email], params[:story]).deliver
+    ParentMailer.delay.contact_form_email(params[:name], params[:email], params[:story])
     flash[:notice] = "Thx for making contact, we will be in touch soon!"
     redirect_to root_url
   end
