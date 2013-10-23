@@ -1,4 +1,4 @@
-var errors = $('<%= j(render 'layouts/errors', object: @child) %>')
+var errors = $('<%= j(render 'layouts/errors', object: @child) %>');
 errors.hide();
-$('#new_child').before(errors)
+$('#new_child').before(errors);
 errors.slideDown();
