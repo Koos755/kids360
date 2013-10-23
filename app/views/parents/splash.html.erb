@@ -244,14 +244,21 @@
         <h4>
           <strong>Be cool</strong>, subscribe to get our latest news</h4>
       </div>
-      <div class="col-md-6">
-        <input type="email" placeholder="your@e-mail.com" name="EMAIL" class="subscribe">
-      </div>
-      <div class="col-md-2">
-        <button type="submit" class="btn btn-theme pull-right btn-block">Subscribe</button>
-      </div>
+      <form action="http://herokuapp.us3.list-manage2.com/subscribe/post?u=929d1073491d740124f81b8fd&amp;id=5341a98bd0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div class="col-md-6">
+          <input type="email" placeholder="your@e-mail.com" name="EMAIL" class="subscribe" id="mce-EMAIL">
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-theme pull-right btn-block">Subscribe</button>
+        </div>
+      </form>
     </div>
-  </div> <!-- /newsletter -->
+  </div>
+
+
+<!--End mc_embed_signup-->
+
+  <!-- /newsletter -->
 
   <!-- The footer, social media icons, and copyright -->
   <%= render 'layouts/footer' %>

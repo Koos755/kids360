@@ -98,4 +98,8 @@ class SessionsController < ApplicationController
     flash[:notice] = "Thx for making contact, we will be in touch soon!"
     redirect_to root_url
   end
+
+  def thankyou
+
+  end
 end

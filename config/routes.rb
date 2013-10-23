@@ -25,5 +25,6 @@ Kids360::Application.routes.draw do
   delete 'sessions/reset' => 'sessions#new_password'
 
   post 'sessions/contact' => 'sessions#contact', as: 'contact_form'
+  get 'sessions/thankyou' => 'sessions#thankyou'
 
 end
