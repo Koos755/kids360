@@ -7,26 +7,18 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
+<body id="top" data-spy="scroll" data-target=".navbar" data-offset="50">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-ex1-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
           <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+          <i class="icon-reorder"></i>
         </button>
         <%= link_to "Kids360", root_url, class: "navbar-brand active" %>
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <div id="nav-collapse" class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
-<!--           <li><#%= link_to "Parents", parents_url %></li>
-          <li><#%= link_to "Children", children_url %></li>
-          <li><#%= link_to "Organizations", organizations_url %></li> -->
           <% if current_parent.present? %>
             <li><%= link_to "My Account", parent_url(current_parent) %></li>
             <li><%= link_to "Log Out", sessions_url, method: :delete %></li>
@@ -38,7 +30,8 @@
       </div><!-- /.navbar-collapse -->
     </div>
   </nav>
-
+  <div class="height110">
+</div>
   <div class="container">
 
     <%= render 'layouts/flash' %>
