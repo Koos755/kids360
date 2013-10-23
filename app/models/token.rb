@@ -25,9 +25,11 @@ class Token < ActiveRecord::Base
 
   def send_email
     if self.token_type == "confirmation"
-      ParentMailer.delay.confirmation_email(self) #TODO have option without delay
+      # ParentMailer.delay.confirmation_email(self) #TODO have option without delay
+      ParentMailer.confirmation_email(self).deliver #TODO have option without delay
     elsif self.token_type == "password_reset"
-      ParentMailer.delay.password_reset_email(self)
+      # ParentMailer.delay.password_reset_email(self)
+      ParentMailer.password_reset_email(self).deliver
     end
   end
 
