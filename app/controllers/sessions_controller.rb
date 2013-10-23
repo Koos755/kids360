@@ -103,6 +103,8 @@ class SessionsController < ApplicationController
   end
 
   def thankyou
+  end
 
+  def confirmed
   end
 end

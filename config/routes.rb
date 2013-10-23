@@ -26,5 +26,6 @@ Kids360::Application.routes.draw do
 
   post 'sessions/contact' => 'sessions#contact', as: 'contact_form'
   get 'sessions/thankyou' => 'sessions#thankyou'
+  get 'sessions/confirmed' => 'sessions#confirmed'
 
 end
