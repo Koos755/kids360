@@ -20,18 +20,24 @@
       </div>
       <div id="nav-collapse" class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a title="Home page" class="scroll brand-1" href="#home">Home</a></li>
-          <!-- <li><a title="Check out our awesome services" href="#features" class=" scroll brand-4">Features</a></li> -->
+          <li class="active"><a title="Home page" class="scroll brand-1" href="#home">HOME</a></li>
+          <li><a title="Check out our awesome services" href="#features" class=" scroll brand-4">FEATURES</a></li>
           <!-- <li><a title="Themes assets" href="#assets" class="scroll brand-3">Assets</a></li> -->
-          <li><a title="Who we are" href="#about" class="scroll fadeto brand-4"> About us</a></li>
-          <li><a title="Get in touch!" href="#contact" class="scroll brand-2">Contact</a></li>
-          <% if current_parent.present? %>
-            <li><%= link_to "My Account", parent_url(current_parent) %></li>
-            <li><%= link_to "Log Out", sessions_url, method: :delete %></li>
-          <% else %>
-            <li><%= link_to "Sign Up", new_parent_url %></li>
-            <li><%= link_to "Log In", new_session_url %></li>
-          <% end %>
+          <li><a title="Who we are" href="#about" class="scroll fadeto brand-4">ABOUT US</a></li>
+          <li><a title="Get in touch!" href="#contact" class="scroll brand-2">CONTACT</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ACCESS <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <% if current_parent.present? %>
+                <li><%= link_to "MY ACCOUNT", parent_url(current_parent) %></li>
+                <li><%= link_to "LOG OUT", sessions_url, method: :delete %></li>
+              <% else %>
+                <li><%= link_to "SIGN UP", new_parent_url %></li>
+                <li><%= link_to "LOG IN", new_session_url %></li>
+              <% end %>
+            </ul>
+          </li>
         </ul>
       </div>
     </div><!-- /.navbar-container -->
@@ -65,49 +71,31 @@
 
 
   <!-- Feature page-->
-<!--   <div id="features" class="page color-4">
+  <div id="features" class="page color-4">
     <div class="inner-page">
-      <h2 class="page-headline">Why should you choose Kids360</h2>
+      <h2 class="page-headline">WHAT WE HAVE TO OFFER:</h2>
     </div>
 
     <div class="inner-page row">
-      <ul class="features list-inline">
-        <li>
-          <h3><i class="icon-cog"></i> Made by Parents </h3>
-          <p>Blah blah blah Blah blah blah Blah blah blah</p>
-        </li>
-        <li>
-          <h3><i class="icon-heart"></i> Page speed</h3>
-          <p>Blah blah blah Blah blah blah Blah blah blah</p>
-        </li>
-        <li>
-          <h3><i class="icon-tablet"></i> Every device.</h3>
-          <p>
-            <strong>Kids360</strong>Blah blah blah Blah blah blah Blah blah blah</p>
-        </li>
-      </ul>
-    </div>
 
-    <div class="row inner-page">
-      <div class="col-md-6 lazy-container">
-        <#%= image_tag "two-phones.png", class: "figurette lazy", alt: "Zombie ipsum", data: "two-phones.png" %>
-      </div>
-      <div class="col-md-6">
-        <h3>All artwork included</h3>
-        <p class="lead">Present your project properly. Create your own art from included templates</p>
-        <ul class="list-wide">
-          <li><i class="icon-check"></i> More than just a pretty face <a href="http://fortawesome.github.io/Font-Awesome/" title="awesome font, awesome">Font-awesome</a>
-          </li>
-          <li><i class="icon-check"></i> Browser icons</li>
-          <li><i class="icon-check"></i> Phone, tablet, laptop, desktop vectors (SVG)</li>
-          <li><i class="icon-check"></i> 5 Layered PSD files.</li>
+      <div class="col-md-6 ">
+        <p class="justify mt100">Our technology is the first to allow parents to communicate with their child care providers on one platform. Child care providers are able to provide an affordable solution to raise their standard by providing:</p>
+        <ul class="features">
+          <li> Accountability</li>
+          <li> Security</li>
+          <li> Emergency planning when seconds count!</li>
         </ul>
+        <p>Information is 100% secure and access is only granted to the centers or after school programs that you grant.</p>
+        <p>In the event of emergency your child’s critical information is available.</p>
+      </div>
+      <div class="col-md-4 col-md-offset-1">
+        <%= image_tag "Kids360NowAlertScreen.png", class: "iphone-image" %>
       </div>
     </div>
 
     <hr>
 
-    <!-- Video -->
+    <!-- Video
 <!--     <div class="row inner-page">
       <div class="col-md-6 col-md-push-6">
         <div class="btn-container figurette">
@@ -182,7 +170,7 @@
   <!-- About page -->
   <div id="about" class="page color-4">
     <div class="inner-page">
-      <h2 class="page-headline">Who are we and how it all got started. Our story.</h2>
+      <h2 class="page-headline">What we do and how it all got started. Our story.</h2>
     </div>
     <div class="row inner-page">
       <div class="col-md-6  lazy-container">
@@ -279,12 +267,8 @@
   <script src="js/main.min.js"></script>
 
   <script>
-  // History, and back button
-  $(function() {
-    jQuery.history.listen()
-    $('.nav .scroll').click(function() {
-      $.history.push('index.html' + $(this).attr('href'));
+    $( ".dropdown" ).click(function() {
+      $( ".dropdown-menu" ).slideToggle();
     });
-  });
   </script>
   <%= render 'layouts/google_analytics' %>

@@ -134,3 +134,8 @@
 .margin-auto {
   margin: 0 auto;
 }
+.iphone-image {
+  width: 300px;
+  display: block;
+}
+
