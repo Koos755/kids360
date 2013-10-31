@@ -9,3 +9,4 @@ new_organization.slideDown();
 $('#child_id-<%= @authorization.child_id %>').replaceWith('<%= j(render 'parents/child_block', the_child: @authorization.child) %>');
 $('.form-inline').slideUp();
 setTimeout(function() { $('.form-inline').remove(); }, 1500);
+$('#click_to_add').show();

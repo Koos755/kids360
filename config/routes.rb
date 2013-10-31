@@ -11,6 +11,7 @@ Kids360::Application.routes.draw do
 
   get 'children/:id/modal/' => 'children#modal', as: 'children_modal'
 
+  get 'organizations/modal/:id/new' => 'organizations#modal_new', as: 'new_modal_organization'
   post 'organizations/add' => 'organizations#create_add', as: 'organization_create_add'
   post 'organizations/:id/activate' => 'organizations#activate', as: 'organization_activate'
 

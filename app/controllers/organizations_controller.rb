@@ -30,6 +30,14 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new
   end
 
+  def modal_new
+    @organization = Organization.new
+    @child = Child.find(params[:id])
+    respond_to do |format|
+      format.js { render 'new'}
+    end
+  end
+
   # GET /organizations/1/edit
   def edit
   end
