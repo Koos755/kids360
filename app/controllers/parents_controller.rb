@@ -8,6 +8,7 @@ class ParentsController < ApplicationController
   end
 
   def dashboard
+    @dashboard = Dashboard.new
   end
 
   def show
