@@ -44,7 +44,7 @@
   </thead>
 
   <tbody>
-    <% @organizations.where(active: false).each do |organization| %>
+    <% @organizations.where(active: nil).each do |organization| %>
       <tr>
         <td><%= organization.name %></td>
         <td><%= organization.email %></td>

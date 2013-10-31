@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131031104655) do
+ActiveRecord::Schema.define(version: 20131031151353) do
 
   create_table "authorizations", force: true do |t|
     t.integer  "organization_id"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20131031104655) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "active",     default: false
+    t.boolean  "active"
   end
 
   create_table "parents", force: true do |t|

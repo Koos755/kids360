@@ -6,7 +6,7 @@ class Dashboard
     @parents_count = Parent.count
     @children_count = Child.count
     @approved_organizations = Organization.where(active: true).count
-    @suggested_organizations = Organization.where(active: false)
+    @suggested_organizations = Organization.where(active: nil)
   end
 
 end
