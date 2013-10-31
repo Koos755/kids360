@@ -28,4 +28,5 @@ Kids360::Application.routes.draw do
   get 'sessions/thankyou' => 'sessions#thankyou'
   get 'sessions/confirmed' => 'sessions#confirmed'
 
+  get 'dashboard' => 'parents#dashboard', as: 'dashboard'
 end

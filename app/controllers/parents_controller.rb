@@ -1,9 +1,13 @@
 class ParentsController < ApplicationController
   before_action :set_parent, only: [:show, :edit, :update, :destroy]
   before_action :parent_is_current_parent, only: [:show, :edit, :update]
+  before_action :current_must_be_admin, only: [:dashboard]
 
   def splash
     render layout: false
+  end
+
+  def dashboard
   end
 
   def show
@@ -63,5 +67,12 @@ class ParentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def parent_params
       params.require(:parent).permit(:first_name, :last_name, :phone_number, :email, :email_confirmed, :address, :city, :state, :zip, :password, :password_confirmation)
+    end
+
+    def current_must_be_admin
+      if current_parent.blank? || current_parent.admin != true
+        flash[:notive] = "You not authorized to access this page"
+        redirect_to root_url
+      end
     end
 end

@@ -20,6 +20,9 @@
       <div id="nav-collapse" class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
           <% if current_parent.present? %>
+            <% if current_parent.admin %>
+              <li><%= link_to "Dashboard", dashboard_url %></li>
+            <% end %>
             <li><%= link_to "My Account", parent_url(current_parent) %></li>
             <li><%= link_to "Log Out", sessions_url, method: :delete %></li>
           <% else %>
