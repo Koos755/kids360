@@ -66,7 +66,7 @@ class OrganizationsController < ApplicationController
         @authorization.child_id = params[:child_id]
         @authorization.organization_id = @organization.id
         if @authorization.save
-          flash.now[:notice] ="Organization and Permission added!"
+          flash.now[:notice] ="Organization has been added, and submitted for approval."
           format.js { render 'create' }
         end
       else

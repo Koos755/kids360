@@ -1,7 +1,7 @@
 <%= form_tag(authorizations_url, method: :post, class: "form-inline", remote: true) do %>
   <h5>Add an Existing Organizations</h5>
   <div class="form-group mt5">
-    <%= select_tag :organization_name, content_tag(:option,'Select one...',:value=>"")+options_from_collection_for_select(organizations, 'id', 'name', include_blank: 'Select One') %>
+    <%= select_tag :organization_id, content_tag(:option,'Select one...',:value=>"")+options_from_collection_for_select(organizations, 'id', 'name', include_blank: 'Select One') %>
     <%= hidden_field_tag :child_id, child.id %>
     <%= button_tag '<i class="icon-arrow-right"></i>'.html_safe, class: "btn-primary line-height0" %>
   </div>

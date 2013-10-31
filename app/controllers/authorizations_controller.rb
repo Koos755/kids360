@@ -15,9 +15,8 @@ class AuthorizationsController < ApplicationController
   def create
     @authorization = Authorization.new
     @authorization.child_id = params[:child_id]
-    @organization = Organization.find_by(name: params[:organization_name])
+    @organization = Organization.find_by(id: params[:organization_id])
     respond_to do |format|
-      if @organization.present?
         @authorization.organization_id = @organization.id
         if @authorization.save
            flash.now[:notice] = "Permission added for #{@authorization.organization.name}!"
@@ -25,13 +24,6 @@ class AuthorizationsController < ApplicationController
         else
           format.js { render 'failed_create' }
         end
-      else
-        @organization = Organization.new
-        @organization.name = params[:organization_name]
-        @child = Child.find(params[:child_id])
-        flash.now[:error] = "Can't find that Organization, please add their details"
-        format.js { render 'organizations/new'}
-      end
     end
   end
 
@@ -60,7 +52,7 @@ class AuthorizationsController < ApplicationController
 
     def only_parent_of_child
       child = Child.find(params[:child_id])
-      if current_parent.present? || child.parent != current_parent
+      if current_parent.blank? || child.parent != current_parent
         flash[:error] = "Unauthorized for this action"
         redirect_to root_url
       end

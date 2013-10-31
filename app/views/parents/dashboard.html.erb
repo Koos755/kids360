@@ -21,12 +21,14 @@
       <th>Name</th>
       <th>Email</th>
       <th>Approve</th>
+      <th>Delete</th>
     </tr>
     <% @dashboard.suggested_organizations.each do |organization| %>
       <tr>
         <td><%= organization.name %></td>
         <td><%= organization.email %></td>
         <td><%= link_to '<i class="icon-check"></i>'.html_safe, organization_activate_url(organization), method: :post%></td>
+        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </table>
