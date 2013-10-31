@@ -6,6 +6,7 @@ class Dashboard
   def initialize
     @parents_count = Parent.count
     @children_count = Child.count
+    @approved_organizations = Organizations.
   end
 end
 
