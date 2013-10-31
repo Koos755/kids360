@@ -1,4 +1,4 @@
-var form = $('<%= j(render 'form', authorization: @authorization, child: @child) %>')
+var form = $('<%= j(render 'form', authorization: @authorization, child: @child, organizations: @organizations) %>')
 form.hide();
 $('#click_to_add').before(form);
 form.slideDown();

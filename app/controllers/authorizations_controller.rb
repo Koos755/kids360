@@ -1,20 +1,10 @@
 class AuthorizationsController < ApplicationController
   before_action :set_authorization, only: [:show, :edit, :update, :destroy]
+  before_action :only_parent_of_child, only: [:create]
 
-  # GET /authorizations
-  # GET /authorizations.json
-  def index
-    @authorizations = Authorization.all
-  end
-
-  # GET /authorizations/1
-  # GET /authorizations/1.json
-  def show
-  end
-
-  # GET /authorizations/new
   def new
     @authorization = Authorization.new
+    @organizations = Organization.where(active: true)
     @child = Child.find(params[:child])
     respond_to do |format|
       format.js
@@ -22,12 +12,6 @@ class AuthorizationsController < ApplicationController
     end
   end
 
-  # GET /authorizations/1/edit
-  def edit
-  end
-
-  # POST /authorizations
-  # POST /authorizations.json
   def create
     @authorization = Authorization.new
     @authorization.child_id = params[:child_id]
@@ -51,23 +35,11 @@ class AuthorizationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /authorizations/1
-  # PATCH/PUT /authorizations/1.json
-  def update
-    respond_to do |format|
-      if @authorization.update(authorization_params)
-        format.html { redirect_to @authorization, notice: 'Authorization was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @authorization.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /authorizations/1
-  # DELETE /authorizations/1.json
   def destroy
+    if @authorization.child.parent != current_parent
+      flash[:error] = 'You are not authorized for that action'
+    end
+
     @authorization.destroy
     flash.now[:notice] = "Permission deleted for #{@authorization.organization.name}!"
     respond_to do |format|
@@ -84,5 +56,13 @@ class AuthorizationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def authorization_params
       params.require(:authorization).permit(:organization_id, :child_id)
+    end
+
+    def only_parent_of_child
+      child = Child.find(params[:child_id])
+      if current_parent.present? || child.parent != current_parent
+        flash[:error] = "Unauthorized for this action"
+        redirect_to root_url
+      end
     end
 end

@@ -83,6 +83,7 @@ class ChildrenController < ApplicationController
   def modal
     @child = Child.find(params[:id])
     @authorization = Authorization.new
+    @organizations = Organization.where(active: true)
     respond_to do |format|
       format.js
     end
