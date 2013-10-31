@@ -1,5 +1,6 @@
 class ChildrenController < ApplicationController
-  before_action :set_child, only: [:show, :edit, :update, :destroy]
+  before_action :set_child, only: [:show, :edit, :update, :destroy, :modal]
+  before_action :must_be_childs_parent, only: [:show, :edit, :update, :destroy, :modal]
 
   # GET /children
   # GET /children.json
@@ -12,6 +13,10 @@ class ChildrenController < ApplicationController
   def show
     respond_to do |format|
       format.js
+      if format.html
+        flash[:error] = "Not Allowed"
+        redirect_to root_url
+      end
     end
   end
 
@@ -80,7 +85,6 @@ class ChildrenController < ApplicationController
   end
 
   def modal
-    @child = Child.find(params[:id])
     @authorization = Authorization.new
     @organizations = Organization.where(active: true)
     respond_to do |format|
@@ -97,5 +101,12 @@ class ChildrenController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def child_params
       params.require(:child).permit(:parent_id, :first_name, :last_name, :email, :phone_number)
+    end
+
+    def must_be_childs_parent
+      if current_parent.blank? || current_parent != @child.parent
+        flash[:error] = "You are not authorized to view that page"
+        redirect_to root_url
+      end
     end
 end
