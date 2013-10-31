@@ -1,4 +1,30 @@
-<h1>Hello</h1>
+<script type="text/javascript">
+  $('body').addClass('color-6');
+</script>
 
-<p><%= @dashboard.parents_count %></p>
-<p><%= @dashboard.children_count %></p>
+<h1>Dashboard:</h1>
+
+<h3>The database has:</h3>
+<ul>
+  <li><%= @dashboard.parents_count %> Parents</li>
+  <li><%= @dashboard.children_count %> Children</li>
+  <li><%= @dashboard.approved_organizations %> approved organizations</li>
+  <li><%= @dashboard.suggested_organizations.count %> suggested organizations</li>
+</ul>
+
+<h3>Here is the list of suggested organizations:</h3>
+<br>
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Approve</th>
+  </tr>
+  <% @dashboard.suggested_organizations.each do |organization| %>
+    <tr>
+      <td><%= organization.name %></td>
+      <td><%= organization.email %></td>
+      <td><%= link_to '<i class="icon-check"></i>'.html_safe, '#'%></td>
+    </tr>
+  <% end %>
+</table>
