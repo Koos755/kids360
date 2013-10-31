@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131023083038) do
+ActiveRecord::Schema.define(version: 20131031082306) do
 
   create_table "authorizations", force: true do |t|
     t.integer  "organization_id"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20131023083038) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "terms"
+    t.boolean  "admin"
   end
 
   create_table "tokens", force: true do |t|
