@@ -1,9 +1,21 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
-  before_action :must_be_admin, only: [:show, :edit, :update, :destroy, :index, :new]
+  before_action :must_be_admin, only: [:show, :edit, :update, :destroy, :index, :create, :new, :activate]
 
   # GET /organizations
   # GET /organizations.json
+  def activate
+    @organization = Organization.find(params[:id])
+    @organization.active = true
+    if @organization.save
+      flash[:notice] = 'Organization activated'
+      redirect_to dashboard_url
+    else
+      flash[:error] = "Something went wrong"
+      redirect_to dashboard_url
+    end
+  end
+
   def index
     @organizations = Organization.all
   end
@@ -26,16 +38,14 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.new(organization_params)
+    @organization.active = true
 
-    respond_to do |format|
       if @organization.save
-        format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @organization }
+        flash[:notice] = 'Organization was successfully created.'
+        redirect_to organizations_url
       else
-        format.html { render action: 'new' }
-        format.json { render json: @organization.errors, status: :unprocessable_entity }
+        render 'new'
       end
-    end
   end
 
   def create_add

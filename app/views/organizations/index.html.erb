@@ -1,6 +1,38 @@
-<h1>Listing organizations</h1>
+<script type="text/javascript">
+  $('body').addClass('color-6');
+</script>
 
-<table>
+<h1>Listing active organizations</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizations.where(active: true).each do |organization| %>
+      <tr>
+        <td><%= organization.name %></td>
+        <td><%= organization.email %></td>
+        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '<i class="icon-plus"></i> Organization'.html_safe, new_organization_path %>
+
+<h1>Listing suggested organizations</h1>
+
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,18 +44,14 @@
   </thead>
 
   <tbody>
-    <% @organizations.each do |organization| %>
+    <% @organizations.where(active: false).each do |organization| %>
       <tr>
         <td><%= organization.name %></td>
         <td><%= organization.email %></td>
-        <td><%= link_to 'Show', organization %></td>
+        <td><%= link_to 'Activate', organization_activate_url(organization), method: :post %></td>
         <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
         <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Organization', new_organization_path %>

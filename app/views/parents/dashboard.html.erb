@@ -12,19 +12,22 @@
   <li><%= @dashboard.suggested_organizations.count %> suggested organizations</li>
 </ul>
 
-<h3>Here is the list of suggested organizations:</h3>
-<br>
-<table class="table table-bordered">
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Approve</th>
-  </tr>
-  <% @dashboard.suggested_organizations.each do |organization| %>
+<% if @dashboard.suggested_organizations.present? %>
+
+  <h3>Here is the list of suggested organizations:</h3>
+  <br>
+  <table class="table table-bordered">
     <tr>
-      <td><%= organization.name %></td>
-      <td><%= organization.email %></td>
-      <td><%= link_to '<i class="icon-check"></i>'.html_safe, '#'%></td>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Approve</th>
     </tr>
-  <% end %>
-</table>
+    <% @dashboard.suggested_organizations.each do |organization| %>
+      <tr>
+        <td><%= organization.name %></td>
+        <td><%= organization.email %></td>
+        <td><%= link_to '<i class="icon-check"></i>'.html_safe, organization_activate_url(organization), method: :post%></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
