@@ -1,5 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
+  before_action :must_be_admin, only: [:show, :edit, :update, :destroy, :index, :new]
 
   # GET /organizations
   # GET /organizations.json
@@ -89,5 +90,12 @@ class OrganizationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
       params.require(:organization).permit(:name, :email)
+    end
+
+    def must_be_admin
+      if current_parent.blank? || current_parent.admin != true
+        flash[:notice] = "You are not authorized to access that page!"
+        redirect_to root_url
+      end
     end
 end
