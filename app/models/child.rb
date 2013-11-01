@@ -6,6 +6,6 @@ class Child < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :gender, inclusion: { in: %w(male female), message: "%{value} is not a valid gender" }
+  validates :gender, inclusion: { in: %w(Male Female), message: "%{value} is not a valid gender" }
 
 end
