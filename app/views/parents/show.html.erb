@@ -19,7 +19,10 @@
 
 <p>
   <strong>Address:</strong>
-  <%= "#{@parent.address}, #{@parent.city}, #{@parent.state}, #{@parent.zip}" %>
+  <%= "#{@parent.address}, " if @parent.address.present? %>
+  <%= "#{@parent.city}, " if @parent.city.present? %>
+  <%= "#{@parent.state}, " if @parent.state.present? %>
+  <%= "#{@parent.zip}"%>
 </p>
 <div class="row">
   <% if @children.present? %>
