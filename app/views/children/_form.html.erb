@@ -1,10 +1,14 @@
 <%= form_for(@child, class: "form-inline mt15", remote: true) do |f| %>
   <div class="form-group mt15">
     <%= f.hidden_field :parent_id, value: @child.parent_id %>
-    <%= f.text_field :first_name, placeholder: "First Name", class: "width250 mr8" %>
-    <%= f.text_field :last_name, placeholder: "Last Name", class: "width250 mr8" %>
-    <%= f.text_field :email, placeholder: "Email", class: "width250 mr8" %>
-    <%= f.text_field :phone_number, placeholder: "Phone Number", class: "width250 mr8" %>
-    <%= f.button "Create", class: "btn btn-primary" %>
+    <%= f.text_field :first_name, placeholder: "First Name", class: "width250 mr8 mt5" %>
+    <%= f.text_field :last_name, placeholder: "Last Name", class: "width250 mr8 mt5" %>
+    <%= f.text_field :email, placeholder: "Email", class: "width250 mr8 mt5" %>
+    <%= f.text_field :phone_number, placeholder: "Phone Number", class: "width250 mr8 mt5" %>
+    <%= f.date_field :dob, class: "width250 mr8 mt5" %>
+    <%= f.text_field :gender, placeholder: "Gender", class: "width250 mr8 mt5" %>
+    <%= f.text_field :school, placeholder: "School", class: "width250 mr8 mt5" %>
+    <%= f.select :doctor_id, [ [ 'Create New Doctor', 'New'] ] + Doctor.all.collect {|d| [d.name, d.id] } , include_blank: 'Please select or create a doctor', class: "width250 mr8 mt5" %><br>
+    <%= f.button "Create", class: "btn btn-primary mt15" %>
   </div>
 <% end %>
