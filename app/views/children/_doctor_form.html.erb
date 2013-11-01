@@ -1,14 +1,15 @@
 <%= form_tag(children_add_doctor_url(child), class: "form mt15", remote: true) do |f| %>
   <div class="form-group mt15">
-    <%= text_field_tag :name, nil, placeholder: "Name" %>
+    <%= text_field_tag :name, nil, placeholder: "Name*" %>
   </div>
   <div class="form-group mt15">
     <%= text_field_tag :email, nil, placeholder: "Email" %>
   </div>
   <div class="form-group mt15">
-    <%= text_field_tag :phone, nil, placeholder: "Phone" %>
+    <%= text_field_tag :phone, nil, placeholder: "Phone*" %>
   </div>
   <div class="form-group mt15">
     <%= button_tag "Create Doctor", class: "btn btn-primary" %>
   </div>
+  <p>*required</p>
 <% end %>

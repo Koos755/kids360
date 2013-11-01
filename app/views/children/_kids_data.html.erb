@@ -1,8 +1,20 @@
 <div id="kids_data">
   <h3 class="modal-title"><%= "#{the_child.first_name} #{the_child.last_name}" %></h3>
   <%= link_to '<i class="icon-edit-sign"></i> Edit'.html_safe, edit_child_url(the_child), remote: true, class: "btn btn-warning pull-right" %>
-  <h6>
-    <%= the_child.email %><br>
-    <%= the_child.phone_number %>
-  </h6>
+  <br>
+  <h5>
+    <%= "the_child.email <br>" if the_child.email.present? %>
+    <%= "the_child.phone_number <br>" if the_child.phone_number.present? %>
+    <%= "the_child.dob <br>" if the_child.dob.present? %>
+    <%= "the_child.gender <br>" if the_child.gender.present? %>
+    <%= "the_child.school <br>" if the_child.school.present? %>
+  </h5>
+  <% if the_child.doctor.present?  %>
+    <h6>
+      Doctor details:<br>
+      <%= the_child.doctor.try(:name) %><br>
+      <%= the_child.doctor.try(:phone) %><br>
+      <%= the_child.doctor.try(:email) %>
+    </h6>
+  <% end %>
 </div>
