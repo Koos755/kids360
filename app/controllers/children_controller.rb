@@ -13,10 +13,7 @@ class ChildrenController < ApplicationController
   def show
     respond_to do |format|
       format.js
-      if format.html
-        flash[:error] = "Not Allowed"
-        redirect_to root_url
-      end
+      format.html { redirect_to parent_url(current_parent), notice: "Not Allowed"}
     end
   end
 
@@ -42,17 +39,22 @@ class ChildrenController < ApplicationController
   # POST /children.json
   def create
     @child = Child.new(child_params)
-
     respond_to do |format|
       if @child.save
-        flash.now[:notice] = "Child added successfully! You can now add permissions."
-        format.js { render 'create' }
-        format.html { redirect_to @child }
-        format.json { render action: 'show', status: :created, location: @child }
+        if params[:child][:doctor_id] == 'New'
+          @doctor = Doctor.new
+          flash.now[:notice] = "Child added successfully! Please create the doctor:"
+          format.js { render 'create_new_doctor' }
+        else
+          @child.doctor_id = params[:child][:doctor_id]
+          @child.save
+          flash.now[:notice] = "Child added successfully! You can now add permissions."
+          format.js { render 'create' }
+          # format.html { redirect_to @child }
+        end
       else
         format.js { render 'failed_create'}
-        format.html { render action: 'new' }
-        format.json { render json: @child.errors, status: :unprocessable_entity }
+        # format.html { render action: 'new' }
       end
     end
   end
@@ -100,7 +102,7 @@ class ChildrenController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def child_params
-      params.require(:child).permit(:parent_id, :first_name, :last_name, :email, :phone_number)
+      params.require(:child).permit(:parent_id, :first_name, :last_name, :email, :phone_number, :dob, :gender, :school)
     end
 
     def must_be_childs_parent

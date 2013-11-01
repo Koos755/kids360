@@ -1,14 +1,34 @@
-<%= form_for(@child, class: "form-inline mt15", remote: true) do |f| %>
+<%= form_for(@child, class: "form mt15", remote: true) do |f| %>
+<h3>Add a Child:</h3>
   <div class="form-group mt15">
     <%= f.hidden_field :parent_id, value: @child.parent_id %>
+  </div>
+  <div class="form-group mt15">
     <%= f.text_field :first_name, placeholder: "First Name", class: "width250 mr8 mt5" %>
+  </div>
+  <div class="form-group mt15">
     <%= f.text_field :last_name, placeholder: "Last Name", class: "width250 mr8 mt5" %>
-    <%= f.text_field :email, placeholder: "Email", class: "width250 mr8 mt5" %>
-    <%= f.text_field :phone_number, placeholder: "Phone Number", class: "width250 mr8 mt5" %>
+  </div>
+  <div class="form-group mt15">
+    <%= f.label :dob, "Date of birth:" %><br>
     <%= f.date_field :dob, class: "width250 mr8 mt5" %>
-    <%= f.text_field :gender, placeholder: "Gender", class: "width250 mr8 mt5" %>
+  </div>
+  <div class="form-group mt15">
+    <%= f.select :gender, [['Select gender...', nil], [ 'Male', 'male'], ['Female', 'female']], class: "width250 mr8 mt5" %>
+  </div>
+  <div class="form-group mt15">
+    <%= f.text_field :email, placeholder: "Email", class: "width250 mr8 mt5" %>
+  </div>
+  <div class="form-group mt15">
+    <%= f.text_field :phone_number, placeholder: "Phone Number", class: "width250 mr8 mt5" %>
+  </div>
+  <div class="form-group mt15">
     <%= f.text_field :school, placeholder: "School", class: "width250 mr8 mt5" %>
+  </div>
+  <div class="form-group mt15">
     <%= f.select :doctor_id, [ [ 'Create New Doctor', 'New'] ] + Doctor.all.collect {|d| [d.name, d.id] } , include_blank: 'Please select or create a doctor', class: "width250 mr8 mt5" %><br>
+  </div>
+  <div class="form-group mt15">
     <%= f.button "Create", class: "btn btn-primary mt15" %>
   </div>
 <% end %>

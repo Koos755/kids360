@@ -10,6 +10,7 @@ Kids360::Application.routes.draw do
   root 'parents#splash'
 
   get 'children/:id/modal/' => 'children#modal', as: 'children_modal'
+  post 'children/:id/add_doctor/' => 'children#add_doctor', as: 'children_add_doctor'
 
   get 'organizations/modal/:id/new' => 'organizations#modal_new', as: 'new_modal_organization'
   post 'organizations/add' => 'organizations#create_add', as: 'organization_create_add'
