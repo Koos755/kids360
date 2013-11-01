@@ -1,0 +1,5 @@
+$('#myModal').modal('hide');
+var notice = $('<div><%= j(render 'layouts/flash') %></div>');
+notice.hide();
+$('h1').before(notice);
+notice.slideDown();

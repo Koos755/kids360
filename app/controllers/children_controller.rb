@@ -1,6 +1,6 @@
 class ChildrenController < ApplicationController
-  before_action :set_child, only: [:show, :edit, :update, :destroy, :modal]
-  before_action :must_be_childs_parent, only: [:show, :edit, :update, :destroy, :modal]
+  before_action :set_child, only: [:show, :edit, :update, :destroy, :modal, :add_doctor]
+  before_action :must_be_childs_parent, only: [:show, :edit, :update, :destroy, :modal, :add_doctor]
 
   # GET /children
   # GET /children.json
@@ -91,6 +91,24 @@ class ChildrenController < ApplicationController
     @organizations = Organization.where(active: true)
     respond_to do |format|
       format.js
+    end
+  end
+
+  def add_doctor
+    @doctor = Doctor.new
+    @doctor.name = params[:name]
+    @doctor.phone = params[:phone]
+    @doctor.email = params[:email]
+    respond_to do |format|
+      if @doctor.save
+        @child.doctor_id = @doctor.id
+        if @child.save
+          flash[:notice] = "Doctor added"
+          format.js
+        end
+      else
+        format.js { render 'failed_doctor_add'}
+      end
     end
   end
 

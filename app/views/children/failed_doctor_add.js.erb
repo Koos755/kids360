@@ -1,0 +1,4 @@
+var errors = $('<%= j(render 'layouts/errors', object: @doctor) %>');
+errors.hide();
+$('.modal-body h4').after(errors);
+errors.slideDown();
