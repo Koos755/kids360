@@ -2,6 +2,10 @@
   margin-top: -20px;
   margin-right: 22px;
 }
+.mb0 {
+  margin-bottom: 0px;
+}
+
 .mt5 {
   margin-top: 5px;
 }
@@ -138,4 +142,9 @@
   width: 300px;
   display: block;
 }
-
+.font14 {
+  font-size: 14px;
+}
+.font12 {
+  font-size: 12px;
+}
