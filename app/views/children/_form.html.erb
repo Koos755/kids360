@@ -9,10 +9,10 @@
   <div class="form-group mt15">
     <%= f.text_field :last_name, placeholder: "Last Name*", class: "width250 mr8 mt5" %>
   </div>
-<!--   <div class="form-group mt15">
-    <#%= f.label :dob, "Date of birth:" %><br>
-    <#%= f.date_field :dob, class: "width250 mr8 mt5" %>
-  </div> -->
+  <div class="form-group mt15">
+    <%= f.label :dob, "Date of birth:" %><br>
+    <%= f.date_field :dob, class: "width250 mr8 mt5" %>
+  </div>
   <div class="form-group mt15">
     <%= f.select :gender, [['Select gender...', nil], [ 'Male', 'Male'], ['Female', 'Female']], class: "width250 mr8 mt5" %>*
   </div>
