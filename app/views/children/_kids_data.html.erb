@@ -1,19 +1,22 @@
 <div id="kids_data">
   <h3 class="modal-title"><%= "#{the_child.first_name} #{the_child.last_name}" %></h3>
   <%= link_to '<i class="icon-edit-sign"></i> Edit'.html_safe, edit_child_url(the_child), remote: true, class: "btn btn-warning pull-right" %>
-   <div class="font14 mt15">
+  <div class="row">
+   <div class="font14 col-xs-5">
+    <h6><strong>Child Details:</strong></h6>
       <p class="mb0"><strong>Email: </strong><%= the_child.email %></p>
       <p class="mb0"><strong>Phone Number: </strong><%= the_child.phone_number %></p>
       <p class="mb0"><strong>Date of Birth: </strong><%= the_child.dob %></p>
       <p class="mb0"><strong>Gender: </strong><%= the_child.gender %></p>
       <p class="mb0"><strong>School: </strong><%= the_child.school %></p>
     </div>
-    <div class="font12">
-        <h6><strong>Doctor details:</strong></h6>
+    <div class="font14 col-xs-5">
+      <h6><strong>Doctor details:</strong></h6>
       <% if the_child.doctor.present?  %>
         <p class="mb0"><strong>Name: </strong><%= the_child.doctor.name %></p>
         <p class="mb0"><strong>Phone Number: </strong><%= the_child.doctor.phone %></p>
         <p class="mb0"><strong>Email: </strong><%= the_child.doctor.email %></p>
       <% end %>
     </div>
+  </div>
 </div>
