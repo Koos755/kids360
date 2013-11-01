@@ -6,7 +6,7 @@
     <h6><strong>Child Details:</strong></h6>
       <p class="mb0"><strong>Email: </strong><%= the_child.email %></p>
       <p class="mb0"><strong>Phone Number: </strong><%= the_child.phone_number %></p>
-      <p class="mb0"><strong>Date of Birth: </strong><%= the_child.dob.strftime('%b %d %Y') %></p>
+      <p class="mb0"><strong>Date of Birth: </strong><%= the_child.dob.strftime('%b %d %Y') if the_child.dob.present? %></p>
       <p class="mb0"><strong>Gender: </strong><%= the_child.gender %></p>
       <p class="mb0"><strong>School: </strong><%= the_child.school %></p>
     </div>
