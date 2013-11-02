@@ -1,5 +1,4 @@
 <%= form_for(@child, class: "form mt15", remote: true) do |f| %>
-<h3>Add a Child:</h3>
   <div class="form-group mt15">
     <%= f.hidden_field :parent_id, value: @child.parent_id %>
   </div>
@@ -29,7 +28,7 @@
     <%= f.select :doctor_id, [ [ 'Create New Doctor', 'New'] ] + Doctor.all.collect {|d| [d.name, d.id] } , include_blank: 'Please select or create a doctor', class: "width250 mr8 mt5" %><br>
   </div>
   <div class="form-group mt15">
-    <%= f.button "Create", class: "btn btn-primary mt15" %>
+    <%= f.button class: "btn btn-primary mt15" %>
   </div>
   <p>*required</p>
 <% end %>

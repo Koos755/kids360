@@ -1,4 +1,4 @@
-var child_element = $('<%= j(render 'form') %>')
+var child_element = $('<div id="child-block"><h3>Add a Child:</h3><%= j(render 'form') %></div>')
 child_element.css("display", "none")
 $('.btn-danger').before(child_element)
 child_element.slideDown()

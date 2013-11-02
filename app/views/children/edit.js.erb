@@ -1,1 +1,1 @@
-$('#kids_data').replaceWith('<%= j(render 'form_modal') %>');
+$('#kids_data').replaceWith('<div id="child-block"><h3>Edit <%= @child.first_name %>:</h3><%= j(render 'form') %></div>');

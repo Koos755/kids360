@@ -32,6 +32,7 @@ class ChildrenController < ApplicationController
   def edit
     respond_to do |format|
       format.js
+      format.html
     end
   end
 
@@ -50,34 +51,24 @@ class ChildrenController < ApplicationController
           @child.save
           flash.now[:notice] = "Child added successfully! You can now add permissions."
           format.js { render 'create' }
-          # format.html { redirect_to @child }
         end
       else
         format.js { render 'failed_create'}
-        # format.html { render action: 'new' }
       end
     end
   end
 
-  # PATCH/PUT /children/1
-  # PATCH/PUT /children/1.json
   def update
     respond_to do |format|
       if @child.update(child_params)
         flash.now[:notice] = 'Child was successfully updated.'
-        format.html { redirect_to @child }
-        format.json { head :no_content }
         format.js
       else
         format.js { render 'failed_update'}
-        format.html { render action: 'edit' }
-        format.json { render json: @child.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /children/1
-  # DELETE /children/1.json
   def destroy
     @child.destroy
     respond_to do |format|
