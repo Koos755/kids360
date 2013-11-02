@@ -5,7 +5,7 @@ require File.expand_path('../application', __FILE__)
 Kids360::Application.initialize!
 
 # Rails.application.routes.default_url_options[:host] = 'localhost:3000'
-Rails.application.routes.default_url_options[:host] = 'kids360now.com'
+Rails.application.routes.default_url_options[:host] = 'www.kids360now.com'
 
 ActionMailer::Base.smtp_settings = {
   :user_name => 'paay',
