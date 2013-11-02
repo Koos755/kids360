@@ -102,7 +102,7 @@ class ChildrenController < ApplicationController
       if @doctor.save
         @child.doctor_id = @doctor.id
         if @child.save
-          flash[:notice] = "Doctor added and linked to #{@child.first_name}"
+          flash.now[:notice] = "Doctor added and linked to #{@child.first_name}"
           format.js
         end
       else

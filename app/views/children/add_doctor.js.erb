@@ -1,5 +1,10 @@
 $('#myModal').modal('hide');
-var notice = $('<div><%= j(render 'layouts/flash') %></div>');
-notice.hide();
-$('h1').before(notice);
-notice.slideDown();
+setTimeout(function() {
+  var modal = $('<%= j(render 'modal', child: @child) %>');
+  $('#myModal').replaceWith(modal);
+  $('#myModal').modal();
+  var notice = $('<div><%= j(render 'layouts/flash') %></div>');
+  notice.hide();
+  $('.modal-header h3').after(notice);
+  setTimeout(function() { notice.slideDown(); }, 500);
+}, 1000);

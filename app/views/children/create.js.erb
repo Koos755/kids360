@@ -4,9 +4,13 @@ var child = $('<%= j(render 'parents/child_block', the_child: @child) %>');
 child.hide();
 $('.row').append(child);
 setTimeout(function() {$('#child_id-<%= @child.id %>').slideDown(); }, 1000);
-var notice = $('<div><%= j(render 'layouts/flash') %></div>');
-notice.hide();
-$('h1').after(notice);
-notice.slideDown();
 $('.btn-danger').slideToggle();
-
+var modal = $('<%= j(render 'modal', child: @child) %>');
+$('#myModal').replaceWith(modal);
+setTimeout(function() {
+  $('#myModal').modal();
+  var notice = $('<div><%= j(render 'layouts/flash') %></div>');
+  notice.hide();
+  $('.modal-header h3').after(notice);
+  setTimeout(function() { notice.slideDown(); }, 1000);
+}, 2000);
