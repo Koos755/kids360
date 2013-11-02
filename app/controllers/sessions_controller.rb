@@ -85,8 +85,8 @@ class SessionsController < ApplicationController
     parent.password_confirmation = params[:password_confirmation]
     if parent.save
       session[:parent_id] = parent.id
-      # ParentMailer.delay.password_changed(parent)
-      ParentMailer.password_changed(parent).deliver
+      ParentMailer.delay.password_changed(parent)
+      # ParentMailer.password_changed(parent).deliver
       flash[:notice] = "Password Successfully changed"
       redirect_to parent_url(parent)
     else
@@ -96,8 +96,8 @@ class SessionsController < ApplicationController
   end
 
   def contact
-    # ParentMailer.delay.contact_form_email(params[:name], params[:email], params[:story])
-    ParentMailer.contact_form_email(params[:name], params[:email], params[:story]).deliver
+    ParentMailer.delay.contact_form_email(params[:name], params[:email], params[:story])
+    # ParentMailer.contact_form_email(params[:name], params[:email], params[:story]).deliver
     flash[:notice] = "Thx for making contact, we will be in touch soon!"
     redirect_to root_url
   end

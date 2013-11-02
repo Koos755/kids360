@@ -32,4 +32,5 @@ Kids360::Application.routes.draw do
   get 'sessions/confirmed' => 'sessions#confirmed'
 
   get 'dashboard' => 'parents#dashboard', as: 'dashboard'
+  get "/delayed_job" => DelayedJobWeb, :anchor => false
 end

@@ -40,6 +40,7 @@ gem 'rails_12factor', group: :production
 
 gem 'sendgrid'
 gem 'delayed_job_active_record'
+gem 'delayed_job_web'
 # Use unicorn as the app server
 # gem 'unicorn'
 
