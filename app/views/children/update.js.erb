@@ -1,6 +1,8 @@
-$('#kids_data').replaceWith('<%= j(render 'kids_data', the_child: @child) %>');
+$('#child-block').replaceWith('<%= j(render 'kids_data', the_child: @child) %>');
 var flash = $('<%= j(render 'layouts/flash') %>');
 flash.hide();
 $('#kids_data').before(flash);
 flash.slideDown();
+var child = $('<%= j(render 'parents/child_block', the_child: @child) %>');
+$('#child_id-<%= @child.id %>').replaceWith(child);
 

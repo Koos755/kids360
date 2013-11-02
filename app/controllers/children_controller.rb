@@ -61,8 +61,16 @@ class ChildrenController < ApplicationController
   def update
     respond_to do |format|
       if @child.update(child_params)
-        flash.now[:notice] = 'Child was successfully updated.'
-        format.js
+        if params[:child][:doctor_id] == 'New'
+          @doctor = Doctor.new
+          flash.now[:notice] = "Child edited successfully! Please create the doctor:"
+          format.js { render 'create_new_doctor_from_edit' }
+        else
+          @child.doctor_id = params[:child][:doctor_id]
+          @child.save
+          flash.now[:notice] = "Child edited successfully!"
+          format.js
+        end
       else
         format.js { render 'failed_update'}
       end
